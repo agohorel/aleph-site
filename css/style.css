@@ -48,7 +48,8 @@ body {
 	position: absolute;
 	top: 20px;
 	left: 16px;
-	animation: fadeIn 2s ease-in;
+	animation: fadeIn 1s ease-in 1s;
+	animation-fill-mode: backwards;
 }
 
 @keyframes fadeIn {
@@ -85,7 +86,7 @@ body {
 	font-size: 60px;
 	font-weight: 400; 
 	letter-spacing: 20px;
-	animation: fadeInMain 1s;
+	animation: fadeInMain .5s;
 }
 
 @keyframes fadeInMain {
@@ -108,22 +109,9 @@ body {
 	font-size: 12px;
 	font-weight: 300;
 	letter-spacing: 3.7px;
-	animation: fadeInSub 3s;
+	animation: fadeIn .75s .75s;
+	animation-fill-mode: backwards;
 	text-align: left;
-}
-
-@keyframes fadeInSub {
-	0% {
-		opacity: 0;
-	}
-
-	50% {
-		opacity: 0;
-	}
-
-	100% {
-		opacity: 1;
-	}
 }
 
 .btn:link,
@@ -135,7 +123,9 @@ body {
 	display: inline-block;
 	border-radius: 2px;
 	transition: all .2s;
-	animation: fadeInSub 4s ease-in;
+	animation: fadeIn 1s ease-in 1s;
+	animation-fill-mode: backwards;
+	position: relative;
 }
 
 .btn:hover {
@@ -151,4 +141,26 @@ body {
 .btn-green {
 	background-color: #12e4a6;
 	color: #060b0d;
+}
+
+.btn::after {
+	content: "";
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+	border-radius: 2px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	transition: all .1s;
+}
+
+.btn-green::after {
+	background-color: #12e4a6;
+}
+
+.btn:hover::after {
+	transform: scale(1.1, 1.4);
+	opacity: 0;
 }
