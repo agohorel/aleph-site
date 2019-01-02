@@ -29,7 +29,6 @@ body {
 								      url(../img/warp.jpg);
 	background-size: cover;
 	background-position: top;
-	/*clip-path: polygon(0 0, 100% 0%, 95% 100%, 5% 100%);*/
 	position: relative;
 	animation: fadeInHeader 1s ease-in-out;
 }
@@ -37,11 +36,11 @@ body {
 @keyframes fadeInHeader {
   0% {
 	opacity: 0;
-    clip-path: polygon(100% 100%, 0 100%, 50% 0, 50% 0);
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
   }
   100% {
   	opacity: 1;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
   }
 }
 
@@ -71,11 +70,13 @@ body {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	text-align: center; 
 }
 
 .header-primary {
 	color: #d4e1e6;
-
+	backface-visibility: hidden;
+	margin: 20px;
 }
 
 .header-primary-main {
@@ -94,7 +95,7 @@ body {
 	}
 
 	50% {
-		transform: translate(0, 0);
+		transform: translate(0, -100vh);
 	}
 
 	100% {
@@ -107,7 +108,8 @@ body {
 	font-size: 12px;
 	font-weight: 300;
 	letter-spacing: 3.7px;
-	animation: fadeInSub 2s;
+	animation: fadeInSub 3s;
+	text-align: left;
 }
 
 @keyframes fadeInSub {
@@ -122,4 +124,31 @@ body {
 	100% {
 		opacity: 1;
 	}
+}
+
+.btn:link,
+.btn:visited {
+	font-family: Roboto, sans-serif;
+	font-weight: 700;
+	text-decoration: none;
+	padding: 15px 40px;
+	display: inline-block;
+	border-radius: 2px;
+	transition: all .2s;
+	animation: fadeInSub 4s ease-in;
+}
+
+.btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+.btn:active {
+	transform: translateY(-1px);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.btn-green {
+	background-color: #12e4a6;
+	color: #060b0d;
 }
