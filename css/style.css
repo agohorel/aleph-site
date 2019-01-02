@@ -1,0 +1,71 @@
+/*
+green: #12e4a6
+blue: #00b4f6
+dark grey: #2e3233
+light grey: #d4e1e6
+near black: #060b0d
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Roboto Mono", monospace;
+	font-weight: 300; 
+	font-size: 16px;
+	line-height: 1.5;
+	color: #060b0d;
+	padding: 30px;
+}
+
+.header {
+	height: 95vh;
+	background-image: linear-gradient(to bottom right, 
+									  rgba(0, 0, 0, 1),
+									  rgba(255, 255, 255, .5)), 
+								      url(../img/warp.jpg);
+	background-size: cover;
+	background-position: top;
+	clip-path: polygon(0 0, 100% 0%, 95% 100%, 5% 100%);
+	position: relative;
+}
+
+.logo-box {
+	position: absolute;
+	top: 20px;
+	left: 16px;
+}
+
+.logo {
+	height: 35px;
+}
+
+.text-box {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.header-primary {
+	color: #d4e1e6;
+
+}
+
+.header-primary-main {
+	display: block;
+	font-family: Roboto, sans-serif;
+	font-size: 60px;
+	font-weight: 400; 
+	letter-spacing: 20px;
+}
+
+.header-primary-sub {
+	display: block;
+	font-size: 12px;
+	font-weight: 300;
+	letter-spacing: 3.7px;
+}
