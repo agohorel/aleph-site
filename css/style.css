@@ -31,12 +31,24 @@ body {
 	background-position: top;
 	clip-path: polygon(0 0, 100% 0%, 95% 100%, 5% 100%);
 	position: relative;
+	animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
 }
 
 .logo-box {
 	position: absolute;
 	top: 20px;
 	left: 16px;
+	animation: fadeIn 1s ease-in;
 }
 
 .logo {
@@ -61,6 +73,22 @@ body {
 	font-size: 60px;
 	font-weight: 400; 
 	letter-spacing: 20px;
+	animation: fadeInMain .5s;
+}
+
+@keyframes fadeInMain {
+	0% {
+		opacity: 0;
+		transform: translate(0, -100vh);
+	}
+
+	50% {
+		transform: translate(0, 0);
+	}
+
+	100% {
+		opacity: 1;
+	}
 }
 
 .header-primary-sub {
@@ -68,4 +96,19 @@ body {
 	font-size: 12px;
 	font-weight: 300;
 	letter-spacing: 3.7px;
+	animation: fadeInSub 1s;
+}
+
+@keyframes fadeInSub {
+	0% {
+		opacity: 0;
+	}
+
+	50% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
 }
