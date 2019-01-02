@@ -21,7 +21,7 @@ body {
 	font-weight: 300; 
 	line-height: 1.5;
 	color: #060b0d;
-	padding: 3rem;
+	padding: 2.4rem;
 }
 
 .header {
@@ -115,7 +115,7 @@ body {
 .btn:visited {
 	font-family: Roboto, sans-serif;
 	font-weight: 700;
-	font-size: 1.5rem;
+	font-size: 1.6rem;
 	text-decoration: none;
 	padding: 1.5rem 4rem;
 	display: inline-block;
