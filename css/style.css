@@ -12,13 +12,16 @@ near black: #060b0d
 	box-sizing: border-box;
 }
 
+html {
+	font-size: 10px;
+}
+
 body {
 	font-family: "Roboto Mono", monospace;
 	font-weight: 300; 
-	font-size: 16px;
 	line-height: 1.5;
 	color: #060b0d;
-	padding: 30px;
+	padding: 3rem;
 }
 
 .header {
@@ -46,24 +49,20 @@ body {
 
 .logo-box {
 	position: absolute;
-	top: 20px;
-	left: 16px;
+	top: 2rem;
+	left: 1.6rem;
 	animation: fadeIn 1s ease-in 1s;
 	animation-fill-mode: backwards;
 }
 
 @keyframes fadeIn {
-	0% {
-		opacity: 0;
-	}
+	0% { opacity: 0; }
 
-	100% {
-		opacity: 1;
-	}
+	100% { opacity: 1; }
 }
 
 .logo {
-	height: 35px;
+	height: 3.5rem;
 }
 
 .text-box {
@@ -77,15 +76,15 @@ body {
 .header-primary {
 	color: #d4e1e6;
 	backface-visibility: hidden;
-	margin: 20px;
+	margin: 2rem;
 }
 
 .header-primary-main {
 	display: block;
 	font-family: Roboto, sans-serif;
-	font-size: 60px;
+	font-size: 6rem;
 	font-weight: 400; 
-	letter-spacing: 20px;
+	letter-spacing: 2rem;
 	animation: fadeInMain .5s;
 }
 
@@ -94,11 +93,9 @@ body {
 		opacity: 0;
 		transform: translate(0, -100vh);
 	}
-
-	50% {
-		transform: translate(0, -100vh);
-	}
-
+	
+	50% { transform: translate(0, -100vh); }
+	
 	100% {
 		opacity: 1;
 	}
@@ -106,9 +103,9 @@ body {
 
 .header-primary-sub {
 	display: block;
-	font-size: 12px;
+	font-size: 1.2rem;
 	font-weight: 300;
-	letter-spacing: 3.7px;
+	letter-spacing: .37rem;
 	animation: fadeIn .75s .75s;
 	animation-fill-mode: backwards;
 	text-align: left;
@@ -118,10 +115,11 @@ body {
 .btn:visited {
 	font-family: Roboto, sans-serif;
 	font-weight: 700;
+	font-size: 1.5rem;
 	text-decoration: none;
-	padding: 15px 40px;
+	padding: 1.5rem 4rem;
 	display: inline-block;
-	border-radius: 2px;
+	border-radius: .2rem;
 	transition: all .2s;
 	animation: fadeIn 1s ease-in 1s;
 	animation-fill-mode: backwards;
@@ -130,12 +128,12 @@ body {
 
 .btn:hover {
 	transform: translateY(-2px);
-	box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+	box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
 }
 
 .btn:active {
 	transform: translateY(-1px);
-	box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+	box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
 }
 
 .btn-green {
@@ -148,7 +146,7 @@ body {
 	display: inline-block;
 	height: 100%;
 	width: 100%;
-	border-radius: 2px;
+	border-radius: .2rem;
 	position: absolute;
 	top: 0;
 	left: 0;
