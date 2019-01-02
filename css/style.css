@@ -6,14 +6,16 @@ light grey: #d4e1e6
 near black: #060b0d
 */
 
-* {
+*,
+*::after,
+*::before {
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;
+	box-sizing: inherit;
 }
 
 html {
-	font-size: 10px;
+	font-size: 62.5%;
 }
 
 body {
@@ -22,6 +24,7 @@ body {
 	line-height: 1.5;
 	color: #060b0d;
 	padding: 2.4rem;
+	box-sizing: border-box;
 }
 
 .header {
@@ -62,7 +65,7 @@ body {
 }
 
 #logo {
-	height: 8rem;
+	height: 6rem;
 }
 
 .text-box {
@@ -82,9 +85,9 @@ body {
 .header-primary-main {
 	display: block;
 	font-family: Roboto, sans-serif;
-	font-size: 6rem;
+	font-size: 5rem;
 	font-weight: 400; 
-	letter-spacing: 2rem;
+	letter-spacing: 3.5rem;
 	animation: fadeInMain .5s;
 }
 
@@ -103,9 +106,9 @@ body {
 
 .header-primary-sub {
 	display: block;
-	font-size: 1.2rem;
+	font-size: 1rem;
 	font-weight: 300;
-	letter-spacing: .37rem;
+	letter-spacing: .17rem;
 	animation: fadeIn .75s .75s;
 	animation-fill-mode: backwards;
 	text-align: left;
@@ -115,7 +118,7 @@ body {
 .btn:visited {
 	font-family: Roboto, sans-serif;
 	font-weight: 700;
-	font-size: 1.6rem;
+	font-size: 1.4rem;
 	text-decoration: none;
 	padding: 1.5rem 4rem;
 	display: inline-block;
