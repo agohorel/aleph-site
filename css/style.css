@@ -1,4 +1,4 @@
-/*
+
 green: #12e4a6
 blue: #00b4f6
 dark grey: #2e3233
@@ -77,12 +77,12 @@ body {
 }
 
 .heading-primary {
-	color: #d4e1e6;
 	backface-visibility: hidden;
 	margin: 2rem;
 }
 
 .heading-primary--main {
+	color: #fff;
 	display: block;
 	font-family: Roboto, sans-serif;
 	font-size: 5rem;
@@ -94,10 +94,8 @@ body {
 @keyframes fadeInMain {
 	0% {
 		opacity: 0;
-		transform: translate(0, -100vh);
+		transform: translate(0, 10vh);
 	}
-	
-	50% { transform: translate(0, -100vh); }
 	
 	100% {
 		opacity: 1;
@@ -105,6 +103,7 @@ body {
 }
 
 .heading-primary--sub {
+	color: #d4e1e6;
 	display: block;
 	font-size: 1rem;
 	font-weight: 300;
@@ -142,26 +141,4 @@ body {
 .btn--green {
 	background-color: #12e4a6;
 	color: #060b0d;
-}
-
-.btn::after {
-	content: "";
-	display: inline-block;
-	height: 100%;
-	width: 100%;
-	border-radius: .2rem;
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: -1;
-	transition: all .1s;
-}
-
-.btn--green::after {
-	background-color: #12e4a6;
-}
-
-.btn:hover::after {
-	transform: scale(1.1, 1.4);
-	opacity: 0;
 }
