@@ -1,8 +1,13 @@
+// aleph branding colors
 $aleph-green: #12e4a6;
 $aleph-blue: #00b4f6;
 $aleph-grey: #2e3233;
 $aleph-light-grey: #d4e1e6;
 $aleph-black: #060b0d;
+
+// generic colors
+$color-black: #000;
+$color-white: #fff;
 
 *,
 *::after,
@@ -28,13 +33,33 @@ body {
 .header {
 	height: 95vh;
 	background-image: linear-gradient(to bottom right, 
-									  rgba(0, 0, 0, 1),
-									  rgba(255, 255, 255, .5)), 
+									  rgba($color-black, 1),
+									  rgba($color-white, .5)), 
 								      url(../img/warp.jpg);
 	background-size: cover;
 	background-position: top;
 	position: relative;
 	animation: fadeInHeader 1s ease-in-out;
+
+	&__logo-box {
+		position: absolute;
+		top: 2rem;
+		left: 1.6rem;
+		animation: fadeIn 1s ease-in 1s;
+		animation-fill-mode: backwards;
+	}
+
+	&__logo {
+		height: 6rem;
+	}
+
+	&__text-box {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center; 
+	}
 }
 
 @keyframes fadeInHeader {
@@ -48,45 +73,36 @@ body {
   }
 }
 
-.header__logo-box {
-	position: absolute;
-	top: 2rem;
-	left: 1.6rem;
-	animation: fadeIn 1s ease-in 1s;
-	animation-fill-mode: backwards;
-}
-
 @keyframes fadeIn {
 	0% { opacity: 0; }
 
 	100% { opacity: 1; }
 }
 
-#header__logo {
-	height: 6rem;
-}
-
-.header__text-box {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	text-align: center; 
-}
-
 .heading-primary {
 	backface-visibility: hidden;
 	margin: 2rem;
-}
 
-.heading-primary--main {
-	color: #fff;
-	display: block;
-	font-family: Roboto, sans-serif;
-	font-size: 5rem;
-	font-weight: 400; 
-	letter-spacing: 3.5rem;
-	animation: fadeInMain .5s;
+	&--main {
+		color: $color-white;
+		display: block;
+		font-family: Roboto, sans-serif;
+		font-size: 5rem;
+		font-weight: 400; 
+		letter-spacing: 3.5rem;
+		animation: fadeInMain .5s;
+	}
+
+	&--sub {
+		color: $aleph-light-grey;
+		display: block;
+		font-size: 1rem;
+		font-weight: 300;
+		letter-spacing: .17rem;
+		animation: fadeIn .75s .75s;
+		animation-fill-mode: backwards;
+		text-align: left;
+	}
 }
 
 @keyframes fadeInMain {
@@ -100,45 +116,36 @@ body {
 	}
 }
 
-.heading-primary--sub {
-	color: $aleph-light-grey;
-	display: block;
-	font-size: 1rem;
-	font-weight: 300;
-	letter-spacing: .17rem;
-	animation: fadeIn .75s .75s;
-	animation-fill-mode: backwards;
-	text-align: left;
-}
+.btn {
+	&:link,
+	&:visited {
+		font-family: Roboto, sans-serif;
+		font-weight: 700;
+		font-size: 1.4rem;
+		text-decoration: none;
+		padding: 1.3rem 3rem;
+		display: inline-block;
+		border-radius: .2rem;
+		transition: all .2s;
+		animation: fadeIn 1s ease-in 1s;
+		animation-fill-mode: backwards;
+		position: relative;
+	}
 
-.btn:link,
-.btn:visited {
-	font-family: Roboto, sans-serif;
-	font-weight: 700;
-	font-size: 1.4rem;
-	text-decoration: none;
-	padding: 1.3rem 3rem;
-	display: inline-block;
-	border-radius: .2rem;
-	transition: all .2s;
-	animation: fadeIn 1s ease-in 1s;
-	animation-fill-mode: backwards;
-	position: relative;
-}
+	&:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
+		background-color: $aleph-green;
+		color: $aleph-light-grey;
+	}
 
-.btn:hover {
-	transform: translateY(-2px);
-	box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
-	background-color: #10cb93;
-	color: $aleph-light-grey;
-}
+	&:active {
+		transform: translateY(-1px);
+		box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+	}
 
-.btn:active {
-	transform: translateY(-1px);
-	box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
-}
-
-.btn--green {
-	background-color: $aleph-green;
-	color: $aleph-black;
+	&--green {
+		background-color: $aleph-green;
+		color: $aleph-black;
+	}
 }
