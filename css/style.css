@@ -50,7 +50,7 @@ body {
   }
 }
 
-.logo-box {
+.header__logo-box {
 	position: absolute;
 	top: 2rem;
 	left: 1.6rem;
@@ -64,11 +64,11 @@ body {
 	100% { opacity: 1; }
 }
 
-#logo {
+#header__logo {
 	height: 6rem;
 }
 
-.text-box {
+.header__text-box {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -76,13 +76,13 @@ body {
 	text-align: center; 
 }
 
-.header-primary {
+.heading-primary {
 	color: #d4e1e6;
 	backface-visibility: hidden;
 	margin: 2rem;
 }
 
-.header-primary-main {
+.heading-primary--main {
 	display: block;
 	font-family: Roboto, sans-serif;
 	font-size: 5rem;
@@ -104,7 +104,7 @@ body {
 	}
 }
 
-.header-primary-sub {
+.heading-primary--sub {
 	display: block;
 	font-size: 1rem;
 	font-weight: 300;
@@ -139,7 +139,7 @@ body {
 	box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
 }
 
-.btn-green {
+.btn--green {
 	background-color: #12e4a6;
 	color: #060b0d;
 }
@@ -157,7 +157,7 @@ body {
 	transition: all .1s;
 }
 
-.btn-green::after {
+.btn--green::after {
 	background-color: #12e4a6;
 }
 
