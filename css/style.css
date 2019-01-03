@@ -23,7 +23,7 @@ body {
 	font-weight: 300; 
 	line-height: 1.5;
 	color: #060b0d;
-	padding: 2.4rem;
+	padding: 2rem;
 	box-sizing: border-box;
 }
 
@@ -120,7 +120,7 @@ body {
 	font-weight: 700;
 	font-size: 1.4rem;
 	text-decoration: none;
-	padding: 1.5rem 4rem;
+	padding: 1.3rem 3rem;
 	display: inline-block;
 	border-radius: .2rem;
 	transition: all .2s;
