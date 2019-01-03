@@ -130,7 +130,7 @@ body {
 .btn:hover {
 	transform: translateY(-2px);
 	box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
-	background-color: #00b4f6;
+	background-color: #10cb93;
 	color: #d4e1e6;
 }
 
