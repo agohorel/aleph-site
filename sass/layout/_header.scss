@@ -1,0 +1,31 @@
+.header {
+	height: 95vh;
+	background-image: linear-gradient(to bottom right, 
+									  rgba($color-black, 1),
+									  rgba($color-white, .5)), 
+								      url(../img/warp.jpg);
+	background-size: cover;
+	background-position: top;
+	position: relative;
+	animation: fadeInHeader 1s ease-in-out;
+
+	&__logo-box {
+		position: absolute;
+		top: 2rem;
+		left: 1.6rem;
+		animation: fadeIn 1s ease-in 1s;
+		animation-fill-mode: backwards;
+	}
+
+	&__logo {
+		height: 6rem;
+	}
+
+	&__text-box {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center; 
+	}
+}

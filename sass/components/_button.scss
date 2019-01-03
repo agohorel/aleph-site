@@ -1,0 +1,33 @@
+.btn {
+	&:link,
+	&:visited {
+		font-family: Roboto, sans-serif;
+		font-weight: 700;
+		font-size: 1.4rem;
+		text-decoration: none;
+		padding: 1.3rem 3rem;
+		display: inline-block;
+		border-radius: .2rem;
+		transition: all .2s;
+		animation: fadeIn 1s ease-in 1s;
+		animation-fill-mode: backwards;
+		position: relative;
+	}
+
+	&:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
+		background-color: $aleph-green;
+		color: $aleph-light-grey;
+	}
+
+	&:active {
+		transform: translateY(-1px);
+		box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+	}
+
+	&--green {
+		background-color: $aleph-green;
+		color: $aleph-black;
+	}
+}

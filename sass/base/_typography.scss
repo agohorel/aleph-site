@@ -1,0 +1,34 @@
+body {
+	font-family: "Roboto Mono", monospace;
+	font-weight: 300; 
+	line-height: 1.5;
+	color: $aleph-black;
+	padding: 2rem;
+}
+
+.heading-primary {
+	backface-visibility: hidden;
+	margin: 2rem;
+
+	&--main {
+		color: $color-white;
+		display: block;
+		font-family: Roboto, sans-serif;
+		font-size: 5rem;
+		font-weight: 400; 
+		letter-spacing: 3.5rem;
+		margin-right: -3.5rem;
+		animation: fadeInMain .5s;
+	}
+
+	&--sub {
+		color: $aleph-light-grey;
+		display: block;
+		font-size: 1rem;
+		font-weight: 300;
+		letter-spacing: .17rem;
+		animation: fadeIn .75s .75s;
+		animation-fill-mode: backwards;
+		text-align: left;
+	}
+}
