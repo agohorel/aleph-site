@@ -61,6 +61,41 @@ body {
     animation-fill-mode: backwards;
     text-align: left; }
 
+.heading-secondary {
+  font-size: 3rem;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(to right, #12e4a6, #00b4f6);
+  -webkit-background-clip: text;
+  color: transparent; }
+
+.heading-tertiary {
+  font-size: 1.4rem;
+  font-weight: 700; }
+
+.paragraph {
+  font-size: 1rem;
+  font-weight: 400; }
+  .paragraph:not(:last-child) {
+    margin-bottom: 2rem; }
+
+.u-center-text {
+  text-align: center; }
+
+.u-margin-bottom-large {
+  margin-bottom: 8rem; }
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem; }
+
+.u-margin-bottom-small {
+  margin-bottom: .5rem; }
+
+.section-about {
+  background-color: #d4e1e6;
+  padding: 25rem 0;
+  margin-top: 2rem; }
+
 .btn:link, .btn:visited {
   font-family: Roboto, sans-serif;
   font-weight: 700;
@@ -88,6 +123,49 @@ body {
   background-color: #12e4a6;
   color: #060b0d; }
 
+.btn-text:link, .btn-text:visited {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #00b4f6;
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: 1px solid #00b4f6;
+  padding: 3px;
+  transition: .2s linear all; }
+
+.btn-text:hover {
+  color: #fff;
+  background-color: #12e4a6;
+  border-bottom: 1px solid #12e4a6;
+  transform: translateY(-2px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+
+.btn-text:active {
+  transform: translateY(0px);
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); }
+
+.composition {
+  position: relative; }
+  .composition__photo {
+    width: 55%;
+    position: absolute;
+    transition: .1s linear all;
+    z-index: 0; }
+    .composition__photo--p1 {
+      left: 0;
+      top: -2rem; }
+    .composition__photo--p2 {
+      right: 0;
+      top: 2rem; }
+    .composition__photo--p3 {
+      left: 20%;
+      top: 10rem; }
+    .composition__photo:hover {
+      transform: scale(1.05) translateY(0.5rem);
+      z-index: 1; }
+  .composition:hover .composition__photo:not(:hover) {
+    transform: scale(0.95); }
+
 .header {
   height: 95vh;
   background-image: linear-gradient(to bottom right, black, rgba(255, 255, 255, 0.5)), url(../img/warp.jpg);
@@ -112,7 +190,6 @@ body {
 
 .row {
   max-width: 114rem;
-  background-color: #d4e1e6;
   margin: 0 auto; }
   .row:not(:last-child) {
     margin-bottom: 8rem; }
@@ -121,7 +198,6 @@ body {
     display: table;
     clear: both; }
   .row [class^="col-"] {
-    background-color: orangered;
     float: left; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 6rem; }

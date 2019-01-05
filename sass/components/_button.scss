@@ -31,3 +31,30 @@
 		color: $aleph-black;
 	}
 }
+
+.btn-text {
+	&:link,
+	&:visited {
+		font-size: $font-size-paragraph;
+		font-weight: 400;
+		color: $aleph-blue;
+		display: inline-block;
+		text-decoration: none;
+		border-bottom: 1px solid $aleph-blue;
+		padding: 3px;
+		transition: .2s linear all;
+	}
+
+	&:hover {
+		color: $color-white;
+		background-color: $aleph-green;
+		border-bottom: 1px solid $aleph-green;
+		transform: translateY(-2px);
+		box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+	}
+
+	&:active {
+		transform: translateY(0px);
+		box-shadow: 0 .25rem .5rem rgba(0, 0, 0, .2);
+	}
+}

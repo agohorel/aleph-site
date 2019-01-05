@@ -14,7 +14,7 @@ body {
 		color: $color-white;
 		display: block;
 		font-family: Roboto, sans-serif;
-		font-size: 5rem;
+		font-size: $font-size-h1;
 		font-weight: 400; 
 		letter-spacing: 3.5rem;
 		margin-right: -3.5rem;
@@ -24,11 +24,34 @@ body {
 	&--sub {
 		color: $aleph-light-grey;
 		display: block;
-		font-size: 1rem;
+		font-size: $font-size-paragraph;
 		font-weight: 300;
 		letter-spacing: .17rem;
 		animation: fadeIn .75s .75s;
 		animation-fill-mode: backwards;
 		text-align: left;
+	}
+}
+
+.heading-secondary {
+	font-size: $font-size-h2;
+	font-weight: 700;
+	display: inline-block;
+	background-image: linear-gradient(to right, $aleph-green, $aleph-blue);
+	-webkit-background-clip: text;
+	color: transparent;
+}
+
+.heading-tertiary {
+	font-size: $font-size-h3;
+	font-weight: 700;
+}
+
+.paragraph {
+	font-size: $font-size-paragraph;
+	font-weight: 400;
+
+	&:not(:last-child){
+		margin-bottom: 2rem;
 	}
 }

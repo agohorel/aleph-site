@@ -3,7 +3,7 @@
     margin: 0 auto;
 
     &:not(:last-child) {
-        margin-bottom: $gutter-vertical;
+        margin-bottom: $grid-gutter-vertical;
     }
     
     @include clearfix;
@@ -12,7 +12,7 @@
         float: left;
 
         &:not(:last-child) {
-            margin-right: $gutter-horizontal;
+            margin-right: $grid-gutter-horizontal;
         }
     }
 
