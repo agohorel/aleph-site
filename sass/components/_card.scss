@@ -1,10 +1,11 @@
 .card {
 	perspective: 150rem;
 	position: relative;
-	height: 22rem;
+	height: 19rem;
+	max-width: 25rem;
 
 	&__side {
-		height: 22rem;
+		height: 19rem;
 		transition: all .8s ease;
 		position: absolute;
 		top: 0;

@@ -83,7 +83,7 @@ body {
   text-align: center; }
 
 .u-margin-bottom-large {
-  margin-bottom: 8rem; }
+  margin-bottom: 14rem; }
 
 .u-margin-bottom-medium {
   margin-bottom: 4rem; }
@@ -93,12 +93,12 @@ body {
 
 .section-about {
   background-color: #d4e1e6;
-  padding: 20rem 0;
+  padding: 14rem 0;
   margin-top: 2rem; }
 
 .section-features {
   margin-top: 2rem;
-  padding: 20rem 0;
+  padding: 14rem 0;
   background-image: linear-gradient(to bottom right, black, rgba(255, 255, 255, 0.8)), url(../img/bent.jpg);
   background-size: cover; }
 
@@ -200,9 +200,10 @@ body {
 .card {
   perspective: 150rem;
   position: relative;
-  height: 22rem; }
+  height: 19rem;
+  max-width: 25rem; }
   .card__side {
-    height: 22rem;
+    height: 19rem;
     transition: all .8s ease;
     position: absolute;
     top: 0;
