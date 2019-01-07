@@ -1,0 +1,34 @@
+.card {
+	perspective: 150rem;
+	position: relative;
+	height: 50rem;
+
+	&__side {
+		height: 50rem;
+		transition: all .8s ease;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		backface-visibility: hidden;
+		border-radius: 3px;
+		@include shadow(1.5rem, 4rem, .15);
+
+		&--front {
+			background-image: linear-gradient(to bottom right, $aleph-green, darken($aleph-green, 15%));
+		}
+
+		&--back {
+			background-image: linear-gradient(to bottom right, $aleph-blue, darken($aleph-blue, 15%));
+			transform: rotateY(180deg);
+		}
+	}
+
+	&:hover &__side--front {
+		transform: rotateY(-180deg);
+	}
+
+	&:hover &__side--back {
+		transform: rotateY(0deg);
+	}
+}

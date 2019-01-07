@@ -1,6 +1,6 @@
 .section-about {
 	background-color: $aleph-light-grey;
-	padding: 25rem 0;
+	padding: 20rem 0;
 	margin-top: 2rem;
 }
 
@@ -12,4 +12,10 @@
 									  rgba($color-white, .8)), 
 								      url(../img/bent.jpg);
 	background-size: cover;
+}
+
+.section-downloads {
+	background-color: $aleph-light-grey;
+	padding: 20rem 0;
+	margin-top: 2rem;
 }

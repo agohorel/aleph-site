@@ -16,14 +16,14 @@
 
 	&:hover {
 		transform: translateY(-2px);
-		box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
+		@include shadow(1rem, 2rem, .2);
 		background-color: $aleph-green;
 		color: $aleph-light-grey;
 	}
 
 	&:active {
 		transform: translateY(-1px);
-		box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+		@include shadow(.5rem, 1rem, .2);
 	}
 
 	&--green {
@@ -50,11 +50,11 @@
 		background-color: $aleph-green;
 		border-bottom: 1px solid $aleph-green;
 		transform: translateY(-2px);
-		box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+		@include shadow(.5rem, 1rem, .2);
 	}
 
 	&:active {
 		transform: translateY(0px);
-		box-shadow: 0 .25rem .5rem rgba(0, 0, 0, .2);
+		@include shadow(.25rem, .5rem, .2);
 	}
 }
