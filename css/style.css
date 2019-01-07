@@ -200,9 +200,9 @@ body {
 .card {
   perspective: 150rem;
   position: relative;
-  height: 50rem; }
+  height: 22rem; }
   .card__side {
-    height: 50rem;
+    height: 22rem;
     transition: all .8s ease;
     position: absolute;
     top: 0;
@@ -210,16 +210,39 @@ body {
     width: 100%;
     backface-visibility: hidden;
     border-radius: 3px;
-    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15); }
+    box-shadow: 0 0.75rem 1rem rgba(0, 0, 0, 0.15); }
     .card__side--front {
-      background-image: linear-gradient(to bottom right, #12e4a6, #0c9d72); }
+      background-image: linear-gradient(to bottom, #c4d6dd, #b4cbd3); }
     .card__side--back {
-      background-image: linear-gradient(to bottom right, #00b4f6, #007caa);
+      background-image: linear-gradient(to bottom, #b4cbd3, #a4bfca);
       transform: rotateY(180deg); }
   .card:hover .card__side--front {
     transform: rotateY(-180deg); }
   .card:hover .card__side--back {
     transform: rotateY(0deg); }
+  .card__icon {
+    font-size: 10rem;
+    text-align: center; }
+    .card__icon--mac .fo-apple::before {
+      background-image: linear-gradient(to bottom, #2bcb9c, #19a9dd);
+      -webkit-background-clip: text;
+      color: transparent; }
+    .card__icon--windows .fo-win10::before {
+      background-image: linear-gradient(to bottom, #2bcb9c, #19a9dd);
+      -webkit-background-clip: text;
+      color: transparent; }
+    .card__icon--linux .fo-tux::before {
+      background-image: linear-gradient(to bottom, #2bcb9c, #19a9dd);
+      -webkit-background-clip: text;
+      color: transparent; }
+  .card__heading {
+    font-size: 1.4rem;
+    font-weight: 400;
+    text-align: center; }
+  .card__details {
+    padding-top: 1rem;
+    font-size: 1rem;
+    text-align: center; }
 
 .header {
   height: 95vh;

@@ -1,10 +1,10 @@
 .card {
 	perspective: 150rem;
 	position: relative;
-	height: 50rem;
+	height: 22rem;
 
 	&__side {
-		height: 50rem;
+		height: 22rem;
 		transition: all .8s ease;
 		position: absolute;
 		top: 0;
@@ -12,14 +12,14 @@
 		width: 100%;
 		backface-visibility: hidden;
 		border-radius: 3px;
-		@include shadow(1.5rem, 4rem, .15);
+		@include shadow(.75rem, 1rem, .15);
 
 		&--front {
-			background-image: linear-gradient(to bottom right, $aleph-green, darken($aleph-green, 15%));
+			background-image: linear-gradient(to bottom, darken($aleph-light-grey, 5%), darken($aleph-light-grey, 10%));
 		}
 
 		&--back {
-			background-image: linear-gradient(to bottom right, $aleph-blue, darken($aleph-blue, 15%));
+			background-image: linear-gradient(to bottom, darken($aleph-light-grey, 10%), darken($aleph-light-grey, 15%));
 			transform: rotateY(180deg);
 		}
 	}
@@ -30,5 +30,46 @@
 
 	&:hover &__side--back {
 		transform: rotateY(0deg);
+	}
+
+	&__icon {
+		font-size: 10rem;
+		text-align: center;
+
+		&--mac {
+			.fo-apple::before {
+				background-image: linear-gradient(to bottom, desaturate($aleph-green, 20%), desaturate($aleph-blue, 20%));
+				-webkit-background-clip: text;
+				color: transparent;
+			}
+		}
+
+		&--windows {
+			.fo-win10::before {
+				background-image: linear-gradient(to bottom, desaturate($aleph-green, 20%), desaturate($aleph-blue, 20%));
+				-webkit-background-clip: text;
+				color: transparent;
+			}
+		}
+
+		&--linux {
+			.fo-tux::before {
+				background-image: linear-gradient(to bottom, desaturate($aleph-green, 20%), desaturate($aleph-blue, 20%));
+				-webkit-background-clip: text;
+				color: transparent;
+			}
+		}
+	}
+
+	&__heading {
+		font-size: $font-size-h3;
+		font-weight: 400;
+		text-align: center;
+	}
+
+	&__details {
+		padding-top: 1rem;
+		font-size: $font-size-paragraph;
+		text-align: center;
 	}
 }
