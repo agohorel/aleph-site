@@ -6,22 +6,24 @@
 
 	&__side {
 		height: 19rem;
-		transition: all .8s ease;
+		transition: all .5s ease;
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
 		backface-visibility: hidden;
 		border-radius: 3px;
-		@include shadow(.75rem, 1rem, .15);
+		// @include shadow(0.5rem, 1em, .15);
 
 		&--front {
 			background-image: linear-gradient(to bottom, darken($aleph-light-grey, 5%), darken($aleph-light-grey, 10%));
+			z-index: 1;
 		}
 
 		&--back {
 			background-image: linear-gradient(to bottom, darken($aleph-light-grey, 10%), darken($aleph-light-grey, 15%));
 			transform: rotateY(180deg);
+			z-index: 0;
 		}
 	}
 
@@ -73,4 +75,16 @@
 		font-size: $font-size-paragraph;
 		text-align: center;
 	}
+
+	&__download-container {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	&__download-box {
+		text-align: center;
+	}
+
 }

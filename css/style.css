@@ -204,19 +204,20 @@ body {
   max-width: 25rem; }
   .card__side {
     height: 19rem;
-    transition: all .8s ease;
+    transition: all .5s ease;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     backface-visibility: hidden;
-    border-radius: 3px;
-    box-shadow: 0 0.75rem 1rem rgba(0, 0, 0, 0.15); }
+    border-radius: 3px; }
     .card__side--front {
-      background-image: linear-gradient(to bottom, #c4d6dd, #b4cbd3); }
+      background-image: linear-gradient(to bottom, #c4d6dd, #b4cbd3);
+      z-index: 1; }
     .card__side--back {
       background-image: linear-gradient(to bottom, #b4cbd3, #a4bfca);
-      transform: rotateY(180deg); }
+      transform: rotateY(180deg);
+      z-index: 0; }
   .card:hover .card__side--front {
     transform: rotateY(-180deg); }
   .card:hover .card__side--back {
@@ -243,6 +244,13 @@ body {
   .card__details {
     padding-top: 1rem;
     font-size: 1rem;
+    text-align: center; }
+  .card__download-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  .card__download-box {
     text-align: center; }
 
 .header {
