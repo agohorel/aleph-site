@@ -107,6 +107,11 @@ body {
   padding: 20rem 0;
   margin-top: 2rem; }
 
+.section-demonstration {
+  padding: 15rem 0;
+  margin-top: 2rem;
+  position: relative; }
+
 .btn:link, .btn:visited {
   font-family: Roboto, sans-serif;
   font-weight: 700;
@@ -252,6 +257,64 @@ body {
     transform: translate(-50%, -50%); }
   .card__download-box {
     text-align: center; }
+
+.demonstration {
+  width: 75%;
+  height: 25rem;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;
+  transform: skewX(-12deg); }
+  .demonstration__shape {
+    position: relative;
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    background-color: #00b4f6;
+    shape-outside: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(12deg); }
+  .demonstration__img {
+    width: 100%;
+    transform: scale(1.4);
+    backface-visibility: hidden;
+    transition: .1s linear all; }
+  .demonstration__text {
+    transform: skewX(12deg); }
+  .demonstration__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    font-family: "Roboto", sans-serif;
+    font-size: 1.6rem;
+    color: #00b4f6;
+    font-weight: 400;
+    opacity: 0;
+    transition: .2s linear all;
+    backface-visibility: hidden; }
+  .demonstration:hover .demonstration__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%); }
+  .demonstration:hover .demonstration__img {
+    transform: scale(1.1);
+    filter: blur(2px) brightness(80%); }
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: .2;
+  overflow: hidden; }
+  .bg-video__content {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; }
 
 .header {
   height: 95vh;
