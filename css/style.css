@@ -84,7 +84,7 @@ body {
   width: 26rem;
   height: 4.5rem;
   background-color: rgba(212, 225, 230, 0.6);
-  border-radius: 3px; }
+  border-radius: 2px; }
 
 .u-center-text {
   text-align: center; }
@@ -126,7 +126,7 @@ body {
   text-decoration: none;
   padding: 1.3rem 3rem;
   display: inline-block;
-  border-radius: .2rem;
+  border-radius: 2px;
   transition: all .2s;
   animation: fadeIn 1s ease-in 1s;
   animation-fill-mode: backwards;
@@ -195,7 +195,7 @@ body {
   padding: 2.5rem;
   min-height: 22rem;
   text-align: center;
-  border-radius: 3px;
+  border-radius: 2px;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
   transition: .2s linear transform; }
   .feature-box__icon {
@@ -222,7 +222,7 @@ body {
     left: 0;
     width: 100%;
     backface-visibility: hidden;
-    border-radius: 3px; }
+    border-radius: 2px; }
     .card__side--front {
       background-image: linear-gradient(to bottom, #c4d6dd, #b4cbd3);
       z-index: 1; }
@@ -270,7 +270,7 @@ body {
   height: 25rem;
   margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.6);
-  border-radius: 3px;
+  border-radius: 2px;
   padding: 6rem;
   padding-left: 9rem;
   transform: skewX(-12deg); }
