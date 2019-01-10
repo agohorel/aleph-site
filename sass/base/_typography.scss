@@ -55,3 +55,11 @@ body {
 		margin-bottom: 2rem;
 	}
 }
+
+.text-frame {
+	display: inline-block;
+	width: 26rem;
+	height: 4.5rem;
+	background-color: rgba($aleph-light-grey, .6);
+	border-radius: 3px;
+}

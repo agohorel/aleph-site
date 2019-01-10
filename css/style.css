@@ -79,6 +79,13 @@ body {
   .paragraph:not(:last-child) {
     margin-bottom: 2rem; }
 
+.text-frame {
+  display: inline-block;
+  width: 26rem;
+  height: 4.5rem;
+  background-color: rgba(212, 225, 230, 0.6);
+  border-radius: 3px; }
+
 .u-center-text {
   text-align: center; }
 
