@@ -4,6 +4,7 @@ let canvasDiv;
 let cnv;
 
 let fft, amplitude, spectrum, waveform, volume, leftVol, rightVol, bass, mid, high, song;
+let mode = "boids";
 
 let flock = [];
 let num_boids = 15;
@@ -29,14 +30,16 @@ function setup(){
 function draw(){
 	analyzeAudio();
 
-	if (flock.length < num_boids && frameCount % 2 === 0){
-		flock.push(new Boid());
-	}
-
-	for (let boid of flock){
-		boid.update();
-		boid.edges();
-		boid.lines(flock);
+	switch(mode){
+		case "boids":
+			runBoids();
+		break;
+		case "spectrum":
+			spec();
+		break;
+		case "waveform":
+			wave();
+		break;
 	}
 }
 
@@ -48,12 +51,41 @@ function windowResized() {
 }
 
 function mousePressed() {
-  if (song.isPlaying()) { 
-	song.stop();
-  } 
-  else {
-	song.play();
-  }
+	mode = "waveform";
+
+	if (song.isPlaying()) { 
+		song.stop();
+	} 
+	else {
+		song.play();
+	}
+}
+
+function analyzeAudio(){
+	spectrum = fft.analyze();
+	waveform = fft.waveform();
+
+	volume = amplitude.getLevel();
+	leftVol = amplitude.getLevel(0);
+	leftVol = amplitude.getLevel(1);
+
+	bass = fft.getEnergy("bass");
+	mid = fft.getEnergy("mid");
+	high = fft.getEnergy("treble");
+}
+
+//////////////////////////////////////////////////////////////////////////////
+
+function runBoids(){
+	if (flock.length < num_boids && frameCount % 2 === 0){
+		flock.push(new Boid());
+	}
+
+	for (let boid of flock){
+		boid.update();
+		boid.edges();
+		boid.lines(flock);
+	}
 }
 
 class Boid {
@@ -120,18 +152,34 @@ function osc(angle, scalar){
 	return abs(sin(radians(angle)) * scalar);
 }
 
-function analyzeAudio(){
-	spectrum = fft.analyze();
-	waveform = fft.waveform();
+//////////////////////////////////////////////////////////////////////////////
 
-	volume = amplitude.getLevel();
-	leftVol = amplitude.getLevel(0);
-	leftVol = amplitude.getLevel(1);
+function spec(){ 
+	let r = bass, g = mid, b = high;
+	background(0);
+	noStroke();
+	fill(r, g, b);
+	 
+	for (let i = 0; i < spectrum.length; i++){
+		let x = map(i, 0, spectrum.length, 0, width);
+	    let h = -height + map(spectrum[i], 0, 255, height, 0);
+	    rect(x, height, width / spectrum.length, h);
+	}
+}
 
-	bass = fft.getEnergy("bass");
-	mid = fft.getEnergy("mid");
-	high = fft.getEnergy("treble");
+//////////////////////////////////////////////////////////////////////////////
 
+function wave() {
+	background(0);
+	noFill();
+	beginShape();
+	stroke(bass, mid, high);
+	strokeWeight(volume * 50);
 
-	console.log(bass, mid, high);
+	for (let i = 0; i< waveform.length; i++){
+		let x = map(i, 0, waveform.length, 0, width);
+		let y = map(waveform[i], -1, 1, 0, height);
+		vertex(x,y);
+	}
+	endShape();
 }
