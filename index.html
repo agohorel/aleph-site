@@ -11,6 +11,11 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="shortcut icon" type="image/png" href="img/icon.png">
         
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.sound.min.js"></script>
+	
+
         <title>a l e p h</title>
     </head>
     <body>
@@ -177,12 +182,10 @@
 
 			<section class="section-demonstration">
 
-				<div class="bg-video">
-					<video class="bg-video__content" autoplay muted loop>
-						<source src="img/video.mp4" type="video/mp4">
-						<source src="img/video.webm" type="video/webm">
-						your browser doesn't support video, bummer!
-					</video>
+				<div class="bg-p5">
+					<div id="p5-container">
+						<!-- p5 canvas goes here -->
+					</div>
 				</div>
 
 				<div class="u-center-text u-margin-bottom-large">
@@ -248,6 +251,8 @@
 					</div>
 				</div>
 
+				<script type="text/javascript" src="./p5/app.js"></script>
+	
 			</section>
 
 

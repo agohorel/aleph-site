@@ -302,19 +302,21 @@ body {
     transform: scale(1.1);
     filter: blur(2px) brightness(80%); }
 
-.bg-video {
+.bg-p5 {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
   z-index: -1;
-  opacity: .2;
   overflow: hidden; }
-  .bg-video__content {
-    height: 100%;
+  .bg-p5 #p5-container {
+    position: relative;
     width: 100%;
-    object-fit: cover; }
+    height: 100%; }
+    .bg-p5 #p5-container canvas {
+      width: 100% !important;
+      height: auto !important; }
 
 .header {
   height: 95vh;
