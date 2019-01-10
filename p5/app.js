@@ -3,8 +3,14 @@ p5.disableFriendlyErrors = true;
 let canvasDiv;
 let cnv;
 
+let fft, amplitude, spectrum, waveform, volume, leftVol, rightVol, bass, mid, high, song;
+
 let flock = [];
 let num_boids = 15;
+
+function preload(){
+	song = loadSound("../audio/song.mp3");
+}
 
 function setup(){
 	canvasDiv = document.getElementById("p5-container");
@@ -12,11 +18,17 @@ function setup(){
 	let h = canvasDiv.offsetHeight;
 	cnv = createCanvas(w, h);
 	cnv.parent('p5-container');
+	
 	background(0);
 	colorMode(HSB);
+
+	amplitude = new p5.Amplitude();
+	fft = new p5.FFT();
 }
 
 function draw(){
+	analyzeAudio();
+
 	if (flock.length < num_boids && frameCount % 2 === 0){
 		flock.push(new Boid());
 	}
@@ -26,15 +38,6 @@ function draw(){
 		boid.edges();
 		boid.lines(flock);
 	}
-
-	// screenshot and reset every ~30 seconds
-	// if (Math.floor(millis()) % 30000 <= 30){
-	// 	let timestamp = Date.now().toString().trim();
-	// 	saveCanvas(cnv, timestamp, "png");
-	// 	clear();
-	// 	background(0);
-	// 	flock = [];
-	// }
 }
 
 function windowResized() {
@@ -42,6 +45,15 @@ function windowResized() {
 	h = canvasDiv.offsetHeight;
 	resizeCanvas(w, h);
 	background(0);
+}
+
+function mousePressed() {
+  if (song.isPlaying()) { 
+	song.stop();
+  } 
+  else {
+	song.play();
+  }
 }
 
 class Boid {
@@ -106,4 +118,20 @@ class Boid {
 
 function osc(angle, scalar){
 	return abs(sin(radians(angle)) * scalar);
+}
+
+function analyzeAudio(){
+	spectrum = fft.analyze();
+	waveform = fft.waveform();
+
+	volume = amplitude.getLevel();
+	leftVol = amplitude.getLevel(0);
+	leftVol = amplitude.getLevel(1);
+
+	bass = fft.getEnergy("bass");
+	mid = fft.getEnergy("mid");
+	high = fft.getEnergy("treble");
+
+
+	console.log(bass, mid, high);
 }
