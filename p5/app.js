@@ -2,7 +2,9 @@ const playBtn = document.getElementById("play");
 const stopBtn = document.getElementById("stop");
 
 playBtn.addEventListener("click", () => {
-	song.loop();
+	if (!song.isPlaying()){
+		song.loop();
+	} else { return; }	
 });
 
 stopBtn.addEventListener("click", () => {
