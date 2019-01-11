@@ -1,7 +1,6 @@
 p5.disableFriendlyErrors = true;
 
-let canvasDiv;
-let cnv;
+let canvasDiv, w, h, cnv;
 
 let fft, amplitude, spectrum, waveform, volume, leftVol, rightVol, bass, mid, high, song;
 let mode = "boids";
@@ -15,13 +14,11 @@ function preload(){
 
 function setup(){
 	canvasDiv = document.getElementById("p5-container");
-	let w = canvasDiv.offsetWidth;
-	let h = canvasDiv.offsetHeight;
+	w = canvasDiv.offsetWidth;
+	h = canvasDiv.offsetHeight;
 	cnv = createCanvas(w, h);
 	cnv.parent('p5-container');
-	
 	background(0);
-	colorMode(HSB);
 
 	amplitude = new p5.Amplitude();
 	fft = new p5.FFT();
@@ -63,7 +60,7 @@ function mousePressed() {
 
 function analyzeAudio(){
 	spectrum = fft.analyze();
-	waveform = fft.waveform();
+	waveform = fft.waveform(512);
 
 	volume = amplitude.getLevel();
 	leftVol = amplitude.getLevel(0);
@@ -77,6 +74,8 @@ function analyzeAudio(){
 //////////////////////////////////////////////////////////////////////////////
 
 function runBoids(){
+	colorMode(HSB);
+
 	if (flock.length < num_boids && frameCount % 2 === 0){
 		flock.push(new Boid());
 	}
@@ -161,19 +160,36 @@ function spec(){
 	fill(r, g, b);
 	 
 	for (let i = 0; i < spectrum.length; i++){
-		let x = map(i, 0, spectrum.length, 0, width);
+		let x = map(i, 0, spectrum.length, 0, width*4);
 	    let h = -height + map(spectrum[i], 0, 255, height, 0);
-	    rect(x, height, width / spectrum.length, h);
+	    rect(x, height, width / spectrum.length*4, h);
 	}
 }
 
 //////////////////////////////////////////////////////////////////////////////
 
+let hasSwitchedDensity = false;
+
 function wave() {
-	background(0);
+	if (!hasSwitchedDensity){
+		pixelDensity(.5);
+		background(0); // fixes white flash
+		hasSwitchedDensity = true;	
+	}
+	
+	colorMode(RGB);
+	fill(0, 100 - map(volume, 0, 1, 0, 100));
+	noStroke();
+	rect(0, 0, w, h);
+
+	if (frameCount % 2 === 0){
+		copy(0, 0, w, h, -int(volume * 100), 0, w + int((volume * 200)), h);
+	}
+		
+	colorMode(HSB);
 	noFill();
 	beginShape();
-	stroke(bass, mid, high);
+	stroke(bass, mid, high*1.25);
 	strokeWeight(volume * 50);
 
 	for (let i = 0; i< waveform.length; i++){

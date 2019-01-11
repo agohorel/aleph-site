@@ -81,10 +81,11 @@ body {
 
 .text-frame {
   display: inline-block;
-  width: 26rem;
-  height: 4.5rem;
+  width: 16rem;
+  height: 4.6rem;
   background-color: rgba(212, 225, 230, 0.6);
-  border-radius: 2px; }
+  border-radius: 2px;
+  transform: skewX(-12deg); }
 
 .u-center-text {
   text-align: center; }
@@ -97,6 +98,9 @@ body {
 
 .u-margin-bottom-small {
   margin-bottom: .5rem; }
+
+.u-unskew {
+  transform: skewX(12deg); }
 
 .section-about {
   background-color: #d4e1e6;
@@ -316,7 +320,7 @@ body {
   height: 100%;
   width: 100%;
   z-index: -1;
-  opacity: .5;
+  opacity: .75;
   overflow: hidden; }
   .bg-p5 #p5-container {
     position: relative;
