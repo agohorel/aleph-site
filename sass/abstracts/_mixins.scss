@@ -9,3 +9,9 @@
 @mixin shadow($offset, $radius, $opacity) {
 	box-shadow: 0 $offset $radius rgba($color-black, $opacity);
 }
+
+@mixin text-gradient {
+	background-image: linear-gradient(to right, $aleph-green, $aleph-blue);
+	-webkit-background-clip: text;
+	color: transparent;
+}

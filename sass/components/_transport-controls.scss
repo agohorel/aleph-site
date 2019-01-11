@@ -1,0 +1,18 @@
+.transport-controls {
+	display: inline-block;
+	width: 14rem;
+	height: 5rem;
+	background-color: rgba($aleph-grey, .8);
+	border-radius: $border-radius;
+	// transform: skewX(-12deg);
+
+	&__icon {
+		font-size: 4rem;
+		margin: 0 1rem;
+		@include text-gradient;
+	}
+
+	&__icon:hover {
+		cursor: pointer;
+	}
+}

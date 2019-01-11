@@ -1,3 +1,16 @@
+const playBtn = document.getElementById("play");
+const stopBtn = document.getElementById("stop");
+
+playBtn.addEventListener("click", () => {
+	song.loop();
+});
+
+stopBtn.addEventListener("click", () => {
+	song.stop();
+});
+
+//////////////////////////////////////////////////////////////////////////////
+
 p5.disableFriendlyErrors = true;
 
 let canvasDiv, w, h, cnv;
@@ -45,17 +58,6 @@ function windowResized() {
 	h = canvasDiv.offsetHeight;
 	resizeCanvas(w, h);
 	background(0);
-}
-
-function mousePressed() {
-	mode = "waveform";
-
-	if (song.isPlaying()) { 
-		song.stop();
-	} 
-	else {
-		song.play();
-	}
 }
 
 function analyzeAudio(){
