@@ -58,8 +58,7 @@ body {
 
 .text-frame {
 	display: inline-block;
-	width: 18rem;
-	height: 4.6rem;
+	padding: .5rem 1.25rem;
 	background-color: rgba($aleph-light-grey, .6);
 	border-radius: $border-radius;
 	transform: skewX(-12deg);

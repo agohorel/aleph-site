@@ -1,10 +1,8 @@
 .transport-controls {
 	display: inline-block;
-	width: 14rem;
-	height: 5rem;
-	background-color: rgba($aleph-grey, .8);
+	background-color: rgba($aleph-grey, .9);
 	border-radius: $border-radius;
-	// transform: skewX(-12deg);
+	padding: .8rem 2rem 0rem 2rem;
 
 	&__icon {
 		font-size: 4rem;

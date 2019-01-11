@@ -81,8 +81,7 @@ body {
 
 .text-frame {
   display: inline-block;
-  width: 18rem;
-  height: 4.6rem;
+  padding: .5rem 1.25rem;
   background-color: rgba(212, 225, 230, 0.6);
   border-radius: 2px;
   transform: skewX(-12deg); }
@@ -332,10 +331,9 @@ body {
 
 .transport-controls {
   display: inline-block;
-  width: 14rem;
-  height: 5rem;
-  background-color: rgba(46, 50, 51, 0.8);
-  border-radius: 2px; }
+  background-color: rgba(46, 50, 51, 0.9);
+  border-radius: 2px;
+  padding: .8rem 2rem 0rem 2rem; }
   .transport-controls__icon {
     font-size: 4rem;
     margin: 0 1rem;
