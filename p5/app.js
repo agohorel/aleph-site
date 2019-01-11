@@ -1,14 +1,25 @@
 const playBtn = document.getElementById("play");
 const stopBtn = document.getElementById("stop");
+let hasBegunPlaying = false;
+let hitPlayTimestamp;
+let currentTime;
+let ellapsedTime;
+let quarterNoteCounter = undefined;
 
 playBtn.addEventListener("click", () => {
 	if (!song.isPlaying()){
 		song.loop();
+		hasBegunPlaying = true;
+		quarterNoteCounter = 0;
+		hitPlayTimestamp = Date.now();
 	} else { return; }	
 });
 
 stopBtn.addEventListener("click", () => {
 	song.stop();
+	hasBegunPlaying = false;
+	quarterNoteCounter = 0;
+	quarterNoteCounter = undefined;
 });
 
 //////////////////////////////////////////////////////////////////////////////
@@ -19,12 +30,14 @@ let canvasDiv, w, h, cnv;
 
 let fft, amplitude, spectrum, waveform, volume, leftVol, rightVol, bass, mid, high, song;
 let mode = "boids";
+let modes = {};
+
 
 let flock = [];
 let num_boids = 15;
 
 function preload(){
-	song = loadSound("../audio/song.mp3");
+	song = loadSound("../audio/song.mp3"); // 129 bpm
 }
 
 function setup(){
@@ -37,20 +50,35 @@ function setup(){
 
 	amplitude = new p5.Amplitude();
 	fft = new p5.FFT();
+
+	modes = [spec, wave];
 }
 
 function draw(){
 	analyzeAudio();
 
-	switch(mode){
-		case "boids":
+	currentTime = Date.now();
+	ellapsedTime = currentTime - hitPlayTimestamp;
+
+	// magic num. 17 is 60fps = 16.667ms rounded up (this seems janky but it seems to work pretty well?)
+	if (hasBegunPlaying && ellapsedTime % bpmToMs(129) < 17) {
+		quarterNoteCounter++;
+		print(quarterNoteCounter);
+	}
+
+	if (quarterNoteCounter >= modes.length){
+		quarterNoteCounter = 0;
+	}
+
+	switch(quarterNoteCounter){
+		case 0:
+			modes[0]();
+		break;
+		case 1:
+			modes[1]();
+		break;
+		default:
 			runBoids();
-		break;
-		case "spectrum":
-			spec();
-		break;
-		case "waveform":
-			wave();
 		break;
 	}
 }
@@ -73,6 +101,10 @@ function analyzeAudio(){
 	bass = fft.getEnergy("bass");
 	mid = fft.getEnergy("mid");
 	high = fft.getEnergy("treble");
+}
+
+function bpmToMs(bpm) {
+	return 60000 / bpm * 2; // 1/2 notes at given tempo
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -157,7 +189,15 @@ function osc(angle, scalar){
 
 //////////////////////////////////////////////////////////////////////////////
 
+let hasSwitchedDensity_spec = false;
+
 function spec(){ 
+	if (!hasSwitchedDensity_spec){
+		pixelDensity(1);
+		background(0); // fixes white flash
+		hasSwitchedDensity_spec = true;	
+	}
+
 	let r = bass, g = mid, b = high;
 	background(0);
 	noStroke();
@@ -172,23 +212,23 @@ function spec(){
 
 //////////////////////////////////////////////////////////////////////////////
 
-let hasSwitchedDensity = false;
+let hasSwitchedDensity_wave = false;
 
 function wave() {
-	if (!hasSwitchedDensity){
+	if (!hasSwitchedDensity_wave){
 		pixelDensity(.5);
 		background(0); // fixes white flash
-		hasSwitchedDensity = true;	
+		hasSwitchedDensity_wave = true;	
 	}
 	
 	colorMode(RGB);
-	fill(0, 100 - map(volume, 0, 1, 0, 100));
+	fill(255, 100 - map(volume, 0, 1, 0, 100));
 	noStroke();
 	rect(0, 0, w, h);
 
-	if (frameCount % 2 === 0){
-		copy(0, 0, w, h, -int(volume * 100), 0, w + int((volume * 200)), h);
-	}
+	// if (frameCount % 3 === 0){
+	// 	copy(0, 0, w, h, -int(volume * 100), 0, w + int((volume * 200)), h);
+	// }
 		
 	colorMode(HSB);
 	noFill();

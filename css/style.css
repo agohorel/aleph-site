@@ -331,7 +331,7 @@ body {
 
 .transport-controls {
   display: inline-block;
-  background-color: rgba(46, 50, 51, 0.9);
+  background-color: rgba(46, 50, 51, 0.8);
   border-radius: 2px;
   padding: .8rem 2rem 0rem 2rem; }
   .transport-controls__icon {
@@ -342,6 +342,9 @@ body {
     color: transparent; }
   .transport-controls__icon:hover {
     cursor: pointer; }
+  .transport-controls__label {
+    color: #fff;
+    padding-bottom: 1rem; }
 
 .header {
   height: 95vh;
