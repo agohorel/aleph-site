@@ -19,6 +19,8 @@ stopBtn.addEventListener("click", () => {
 	song.stop();
 	hasBegunPlaying = false;
 	quarterNoteCounter = undefined;
+	clear();
+	background(0);
 });
 
 //////////////////////////////////////////////////////////////////////////////
