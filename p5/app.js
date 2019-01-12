@@ -1,10 +1,9 @@
+//////////////////////////////////////////////////////////////////////////////
+////////////////////////////////   D O M   ///////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
 const playBtn = document.getElementById("play");
 const stopBtn = document.getElementById("stop");
-let hasBegunPlaying = false;
-let quarterNoteCounter = undefined;
-let hitPlayTimestamp;
-let currentTime;
-let ellapsedTime;
 
 playBtn.addEventListener("click", () => {
 	if (!song.isPlaying()){
@@ -18,11 +17,13 @@ playBtn.addEventListener("click", () => {
 stopBtn.addEventListener("click", () => {
 	song.stop();
 	hasBegunPlaying = false;
-	quarterNoteCounter = undefined;
+	quarterNoteCounter = undefined; // re-set quarterNoteCounter to undefined to trigger default case in switch
 	clear();
 	background(0);
 });
 
+//////////////////////////////////////////////////////////////////////////////
+////////////////////////////    P5 MAIN    ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 
 p5.disableFriendlyErrors = true;
@@ -30,12 +31,10 @@ p5.disableFriendlyErrors = true;
 let canvasDiv, w, h, cnv;
 
 let fft, amplitude, spectrum, waveform, volume, leftVol, rightVol, bass, mid, high, song;
-let mode = "boids";
-let modes = {};
-
-
-let flock = [];
-let num_boids = 15;
+let hitPlayTimestamp, currentTime, ellapsedTime;
+let modes = [];
+let hasBegunPlaying = false;
+let quarterNoteCounter = undefined;
 
 function preload(){
 	song = loadSound("../audio/song.mp3"); // 129 bpm
@@ -52,6 +51,7 @@ function setup(){
 	amplitude = new p5.Amplitude();
 	fft = new p5.FFT();
 
+	// put modes to cycle through here
 	modes = [spec, wave];
 }
 
@@ -61,10 +61,10 @@ function draw(){
 	currentTime = Date.now();
 	ellapsedTime = currentTime - hitPlayTimestamp;
 
-	// magic num. 17 is 60fps = 16.667ms rounded up (this seems janky but it seems to work pretty well?)
+	// magic num. 17 is 60fps = 16.667ms frametime rounded up (this seems janky but it seems to work pretty well?)
 	if (hasBegunPlaying && ellapsedTime % bpmToMs(129) < 17) {
 		quarterNoteCounter++;
-		clear();
+		clear(); // clear the canvas to make sure remnants of prior sketches don't remain
 	}
 
 	if (quarterNoteCounter >= modes.length){
@@ -109,6 +109,11 @@ function bpmToMs(bpm) {
 }
 
 //////////////////////////////////////////////////////////////////////////////
+////////////////////////////   B O I D S   ///////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+let flock = [];
+let num_boids = 15;
 
 function runBoids(){
 	colorMode(HSB);
@@ -189,6 +194,8 @@ function osc(angle, scalar){
 }
 
 //////////////////////////////////////////////////////////////////////////////
+////////////////////////////   SPECTRUM    ///////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
 
 function spec(){ 
 	let r = bass, g = mid, b = high;
@@ -203,6 +210,8 @@ function spec(){
 	}
 }
 
+//////////////////////////////////////////////////////////////////////////////
+////////////////////////////   WAVEFORM    ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 
 function wave() {
