@@ -2,6 +2,8 @@
 ////////////////////////////////   D O M   ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 
+
+// TRANSPORT CONTROLS
 const playBtn = document.getElementById("play");
 const stopBtn = document.getElementById("stop");
 
@@ -21,6 +23,13 @@ stopBtn.addEventListener("click", () => {
 	clear();
 	background(0);
 });
+
+// SKETCH DESCRIPTION BOX
+
+const sketchName = document.getElementById("demonstration__text--sketchName");
+const sketchDescription = document.getElementById("demonstration__text--description");
+
+
 
 //////////////////////////////////////////////////////////////////////////////
 ////////////////////////////    P5 MAIN    ///////////////////////////////////
@@ -54,7 +63,29 @@ function setup(){
 
 	// put modes to cycle through here
 	// modes = [wave, spectrumBars, spec, mandala];
-	modes = [spectrumBars];
+	// modes = [spectrumBars];
+
+	modes = [{
+		sketch: wave,
+		name: "waveform",
+		description: "this is a simple waveform"
+	}, 
+	{
+		sketch: spectrumBars,
+		name: "spectrum bars",
+		description: "this sketch uses the spectrum to draw rectangles"
+	},
+	{
+		sketch: spec,
+		name: "spectrum",
+		description: "this is a simple spectrum"
+	},
+	{
+		sketch: mandala,
+		name: "mandala",
+		description: "this sketch uses audio properties to translate and color simple lines and dots into a mandala-like pattern"
+	}
+	]
 }
 
 function draw(){
@@ -65,8 +96,8 @@ function draw(){
 
 	// magic num. 20 is 60fps = 16.667ms frametime rounded up to 20 (this seems janky but it seems to work pretty well?)
 	if (hasBegunPlaying && ellapsedTime % bpmToMs(129) < 20) {
-		// quarterNoteCounter++; // re-enable to cycle through modes
-		// resetParams();
+		quarterNoteCounter++; // re-enable to cycle through modes
+		resetParams();
 	}
 
 	if (quarterNoteCounter >= modes.length){
@@ -75,16 +106,16 @@ function draw(){
 
 	switch(quarterNoteCounter){
 		case 0:
-			modes[0]();
+			modes[0].sketch();
 		break;
 		case 1:
-			modes[1]();
+			modes[1].sketch();
 		break;
 		case 2:
-			modes[2]();
+			modes[2].sketch();
 		break;
 		case 3:
-			modes[3]();
+			modes[3].sketch();
 		break;
 		default:
 			runBoids();
@@ -267,7 +298,7 @@ function wave() {
 }
 
 //////////////////////////////////////////////////////////////////////////////
-////////////////////////////   NEW THING   ///////////////////////////////////
+//////////////////////////   SPECTRUM BARS   /////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 
 function spectrumBars(){
@@ -280,7 +311,6 @@ function spectrumBars(){
 		// let x = map(spectrum[i], 0, 255, 0, width);
 		let y = map(spectrum[i], 0, 255, 0, height);
 		fill(random(spectrum[i]));
-		// stroke(255 - spectrum[i]);
 		rect(width/2 - 500, y, 500, spectrum[i]);
 		rect(width/2 + 500, y, 500, spectrum[i]);
 	}
@@ -293,14 +323,10 @@ function spectrumBars(){
 function mandala(){
 	colorMode(HSB);
 	background(255);
-
-
 	translate(width/2, height/2);
-
 	drawMandala(16, width*.45, .002);
 	drawMandala(32, width*.35, -.004);
 	drawMandala(64, width*.25, .008);
-
 }
 
 function drawMandala(segments, radius, rotationScale){
