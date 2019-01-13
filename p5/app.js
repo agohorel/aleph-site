@@ -31,6 +31,7 @@ p5.disableFriendlyErrors = true;
 let canvasDiv, w, h, cnv;
 
 let fft, amplitude, spectrum, waveform, volume, leftVol, rightVol, bass, mid, high, song;
+let volEased = 0.001, leftVolEased = 0.001, rightVolEased = 0.001;
 let hitPlayTimestamp, currentTime, ellapsedTime;
 let modes = [];
 let hasBegunPlaying = false;
@@ -52,7 +53,7 @@ function setup(){
 	fft = new p5.FFT();
 
 	// put modes to cycle through here
-	modes = [spec, wave];
+	modes = [mandala];
 }
 
 function draw(){
@@ -63,8 +64,8 @@ function draw(){
 
 	// magic num. 17 is 60fps = 16.667ms frametime rounded up (this seems janky but it seems to work pretty well?)
 	if (hasBegunPlaying && ellapsedTime % bpmToMs(129) < 17) {
-		quarterNoteCounter++;
-		clear(); // clear the canvas to make sure remnants of prior sketches don't remain
+		// quarterNoteCounter++;
+		// resetParams();
 	}
 
 	if (quarterNoteCounter >= modes.length){
@@ -97,15 +98,40 @@ function analyzeAudio(){
 
 	volume = amplitude.getLevel();
 	leftVol = amplitude.getLevel(0);
-	leftVol = amplitude.getLevel(1);
+	rightVol = amplitude.getLevel(1);
 
 	bass = fft.getEnergy("bass");
 	mid = fft.getEnergy("mid");
 	high = fft.getEnergy("treble");
+
+	smoother(volume, leftVol, rightVol, .5);
+	print(volume, volEased);
+}
+
+function smoother(volume, leftVol, rightVol, easing){
+	let scaler = 1;
+
+	let target = volume * scaler;
+	let diff = target - volEased;
+	volEased += diff * easing;
+
+	let targetL = leftVol * scaler;
+	let diffL = targetL - leftVolEased;
+	leftVolEased += diffL * easing;
+
+	let targetR = rightVol * scaler;
+	let diffR = targetR - rightVolEased;
+	rightVolEased += diffR * easing;
 }
 
 function bpmToMs(bpm) {
 	return 60000 / bpm * 2; // 1/2 notes at given tempo
+}
+
+function resetParams(){
+	clear(); // clear the canvas to make sure remnants of prior sketches don't remain
+	rectMode(CORNER);
+	background(0);
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -232,4 +258,65 @@ function wave() {
 		vertex(x,y);
 	}
 	endShape();
+}
+
+//////////////////////////////////////////////////////////////////////////////
+////////////////////////////   NEW THING   ///////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+function asdf(){
+	colorMode(RGB);
+	rectMode(CENTER);
+	background(255);
+	noStroke();
+
+	for (let i = 0; i < spectrum.length; i++){
+		// let x = map(spectrum[i], 0, 255, 0, width);
+		let y = map(spectrum[i], 0, 255, 0, height);
+		fill(random(spectrum[i]));
+		// stroke(255 - spectrum[i]);
+		rect(width/2 - 500, y, 500, spectrum[i]);
+		rect(width/2 + 500, y, 500, spectrum[i]);
+	}
+}
+
+//////////////////////////////////////////////////////////////////////////////
+////////////////////////////    MANDALA    ///////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+function mandala(){
+	colorMode(HSB);
+	background(0);
+	let segments = 32;
+	let radius = 800;
+	let saturationScale = map(leftVolEased, 0, .5, 0, 100);
+	let brightnessScale = map(rightVolEased, 0, 1, 0, 100);
+
+	translate(width/2, height/2);
+
+	rotate((frameCount * .001) + (volEased*.1));
+
+	for (let i = 0; i < segments; i++){
+		rotate(TWO_PI / segments);
+
+		strokeWeight(volEased*5);
+		stroke(bass, saturationScale, brightnessScale);
+		line(bass, radius*volEased, 0, radius);
+		stroke(mid, saturationScale, brightnessScale);
+		line(mid, radius*volEased, 0, radius);
+		stroke(high, saturationScale, brightnessScale);
+		line(high, radius*volEased, 0, radius);
+
+		strokeWeight(volEased*50);
+		stroke(map(volEased, 0, 1, 0, 255));
+		point(0, radius);
+		stroke(bass, saturationScale, brightnessScale);
+		point(bass, radius*volEased);
+		stroke(mid, saturationScale, brightnessScale);
+		point(mid, radius*volEased);
+		stroke(high, saturationScale, brightnessScale);
+		point(high, radius*volEased);
+		
+	}
+
 }
