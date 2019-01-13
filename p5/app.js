@@ -53,7 +53,8 @@ function setup(){
 	fft = new p5.FFT();
 
 	// put modes to cycle through here
-	modes = [mandala];
+	// modes = [wave, spectrumBars, spec, mandala];
+	modes = [spectrumBars];
 }
 
 function draw(){
@@ -62,9 +63,9 @@ function draw(){
 	currentTime = Date.now();
 	ellapsedTime = currentTime - hitPlayTimestamp;
 
-	// magic num. 17 is 60fps = 16.667ms frametime rounded up (this seems janky but it seems to work pretty well?)
-	if (hasBegunPlaying && ellapsedTime % bpmToMs(129) < 17) {
-		// quarterNoteCounter++;
+	// magic num. 20 is 60fps = 16.667ms frametime rounded up to 20 (this seems janky but it seems to work pretty well?)
+	if (hasBegunPlaying && ellapsedTime % bpmToMs(129) < 20) {
+		// quarterNoteCounter++; // re-enable to cycle through modes
 		// resetParams();
 	}
 
@@ -78,6 +79,12 @@ function draw(){
 		break;
 		case 1:
 			modes[1]();
+		break;
+		case 2:
+			modes[2]();
+		break;
+		case 3:
+			modes[3]();
 		break;
 		default:
 			runBoids();
@@ -105,7 +112,6 @@ function analyzeAudio(){
 	high = fft.getEnergy("treble");
 
 	smoother(volume, leftVol, rightVol, .5);
-	print(volume, volEased);
 }
 
 function smoother(volume, leftVol, rightVol, easing){
@@ -264,7 +270,7 @@ function wave() {
 ////////////////////////////   NEW THING   ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 
-function asdf(){
+function spectrumBars(){
 	colorMode(RGB);
 	rectMode(CENTER);
 	background(255);
@@ -286,20 +292,27 @@ function asdf(){
 
 function mandala(){
 	colorMode(HSB);
-	background(0);
-	let segments = 32;
-	let radius = 800;
-	let saturationScale = map(leftVolEased, 0, .5, 0, 100);
-	let brightnessScale = map(rightVolEased, 0, 1, 0, 100);
+	background(255);
+
 
 	translate(width/2, height/2);
 
-	rotate((frameCount * .001) + (volEased*.1));
+	drawMandala(16, width*.45, .002);
+	drawMandala(32, width*.35, -.004);
+	drawMandala(64, width*.25, .008);
+
+}
+
+function drawMandala(segments, radius, rotationScale){
+	let saturationScale = map(leftVolEased, 0, 1, 75, 100);
+	let brightnessScale = map(rightVolEased, 0, 1, 50, 100);
+	
+	rotate(frameCount * rotationScale);
 
 	for (let i = 0; i < segments; i++){
 		rotate(TWO_PI / segments);
 
-		strokeWeight(volEased*5);
+		strokeWeight(volEased*7);
 		stroke(bass, saturationScale, brightnessScale);
 		line(bass, radius*volEased, 0, radius);
 		stroke(mid, saturationScale, brightnessScale);
@@ -307,7 +320,7 @@ function mandala(){
 		stroke(high, saturationScale, brightnessScale);
 		line(high, radius*volEased, 0, radius);
 
-		strokeWeight(volEased*50);
+		strokeWeight(volEased*75);
 		stroke(map(volEased, 0, 1, 0, 255));
 		point(0, radius);
 		stroke(bass, saturationScale, brightnessScale);
@@ -316,7 +329,5 @@ function mandala(){
 		point(mid, radius*volEased);
 		stroke(high, saturationScale, brightnessScale);
 		point(high, radius*volEased);
-		
 	}
-
 }
