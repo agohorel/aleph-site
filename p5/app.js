@@ -6,6 +6,7 @@
 // TRANSPORT CONTROLS
 const playBtn = document.getElementById("play");
 const stopBtn = document.getElementById("stop");
+const descriptionBox = document.getElementsByClassName("demonstration");
 
 playBtn.addEventListener("click", () => {
 	if (!song.isPlaying()){
@@ -13,6 +14,7 @@ playBtn.addEventListener("click", () => {
 		hasBegunPlaying = true;
 		quarterNoteCounter = 0;
 		hitPlayTimestamp = Date.now();
+		descriptionBox[0].style.opacity = 0;
 	} else { return; }	
 });
 
@@ -22,14 +24,8 @@ stopBtn.addEventListener("click", () => {
 	quarterNoteCounter = undefined; // re-set quarterNoteCounter to undefined to trigger default case in switch
 	clear();
 	background(0);
+	descriptionBox[0].style.opacity = 1;
 });
-
-// SKETCH DESCRIPTION BOX
-
-const sketchName = document.getElementById("demonstration__text--sketchName");
-const sketchDescription = document.getElementById("demonstration__text--description");
-
-
 
 //////////////////////////////////////////////////////////////////////////////
 ////////////////////////////    P5 MAIN    ///////////////////////////////////
@@ -62,30 +58,8 @@ function setup(){
 	fft = new p5.FFT();
 
 	// put modes to cycle through here
-	// modes = [wave, spectrumBars, spec, mandala];
+	modes = [wave, spectrumBars, spec, mandala];
 	// modes = [spectrumBars];
-
-	modes = [{
-		sketch: wave,
-		name: "waveform",
-		description: "this is a simple waveform"
-	}, 
-	{
-		sketch: spectrumBars,
-		name: "spectrum bars",
-		description: "this sketch uses the spectrum to draw rectangles"
-	},
-	{
-		sketch: spec,
-		name: "spectrum",
-		description: "this is a simple spectrum"
-	},
-	{
-		sketch: mandala,
-		name: "mandala",
-		description: "this sketch uses audio properties to translate and color simple lines and dots into a mandala-like pattern"
-	}
-	]
 }
 
 function draw(){
@@ -98,24 +72,24 @@ function draw(){
 	if (hasBegunPlaying && ellapsedTime % bpmToMs(129) < 20) {
 		quarterNoteCounter++; // re-enable to cycle through modes
 		resetParams();
-	}
-
-	if (quarterNoteCounter >= modes.length){
-		quarterNoteCounter = 0;
+		
+		if (quarterNoteCounter >= modes.length){
+			quarterNoteCounter = 0;
+		}	
 	}
 
 	switch(quarterNoteCounter){
 		case 0:
-			modes[0].sketch();
+			modes[0]();
 		break;
 		case 1:
-			modes[1].sketch();
+			modes[1]();
 		break;
 		case 2:
-			modes[2].sketch();
+			modes[2]();
 		break;
 		case 3:
-			modes[3].sketch();
+			modes[3]();
 		break;
 		default:
 			runBoids();
@@ -311,8 +285,8 @@ function spectrumBars(){
 		// let x = map(spectrum[i], 0, 255, 0, width);
 		let y = map(spectrum[i], 0, 255, 0, height);
 		fill(random(spectrum[i]));
-		rect(width/2 - 500, y, 500, spectrum[i]);
-		rect(width/2 + 500, y, 500, spectrum[i]);
+		rect(width/2 - width/4, y, width/6, spectrum[i]);
+		rect(width/2 + width/4, y, width/6, spectrum[i]);
 	}
 }
 

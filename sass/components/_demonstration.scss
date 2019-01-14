@@ -1,57 +1,19 @@
 .demonstration {
-	width: 75%;
-	height: 25rem;
-	margin: 0 auto;
+	width: 67%;
+	height: 15rem;
+	margin: 10rem auto;
 	background-color: rgba(255, 255, 255, .6);
 	border-radius: $border-radius;
-	padding: 6rem;
-	padding-left: 9rem;
+	padding: 3rem 5rem;
 	transform: skewX(-12deg);
-
-	&__shape {
-		position: relative;
-		width: 15rem;
-		height: 15rem;
-		float: left;
-		background-color: $aleph-blue;
-		shape-outside: circle(50% at 50% 50%);
-		clip-path: circle(50% at 50% 50%);
-		transform: translateX(-3rem) skewX(12deg);
-	}
-
-	&__img {
-		width: 100%;
-		transform: scale(1.4);
-		backface-visibility: hidden;
-		transition: .1s linear all;
-	}
+	transition: 1s linear all;
+	opacity: 1;
 
 	&__text {
 		transform: skewX(12deg);
 	}
 
-	&__caption {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, 20%);
-		font-family: "Roboto", sans-serif;
-		font-size: 1.6rem;
-		color: $aleph-blue;
-		font-weight: 400;
-		opacity: 0;
-		transition: .2s linear all;
-		backface-visibility: hidden;
+	&__text--description {
+		padding-top: 2rem;
 	}
-
-	&:hover &__caption{
-		opacity: 1;
-		transform: translate(-50%, -50%);
-	}
-
-	&:hover &__img {
-		transform: scale(1.1);
-		filter: blur(2px) brightness(80%);
-	}
-
 }
