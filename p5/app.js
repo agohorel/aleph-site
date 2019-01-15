@@ -61,9 +61,9 @@ function setup(){
 
 	// put modes to cycle through here
 	// modes = [wave, spectrumBars, spec, mandala];
-	modes = [spectrumBars];
+	modes = [mandala];
 
-	analyzeAudio();
+	analyzeAudio(); // run initially so spectrum.length, etc. is not undefined
 	img = createImage(spectrum.length, 1);
 }
 
@@ -282,21 +282,37 @@ function wave() {
 
 function spectrumBars(){
 	colorMode(RGB);
-	background(0);
+	fill(0, 75 - map(volume, 0, 1, 0, 255));
+	noStroke();
+	rect(0, 0, width, height);
+
+	// only copy pixels every other frame
+	if (frameCount % 2 === 0){
+		// only copy first row of pixels (all subsequent rows are the same anyway)
+		copy(0, 0, width, 1, -20, 0, width + 40, height);
+	}
+	
 	img.loadPixels();
 
 	for (let i = 0; i < spectrum.length; i+=4){
-		img.pixels[i] = red(spectrum[i]);
-		img.pixels[i+1] = green(spectrum[i]);
-		img.pixels[i+2] = blue(spectrum[i]);
-		img.pixels[i+3] = alpha(spectrum[i]);
+		let waveformScaled = map(waveform[i], -1, 1, 0, 255);
+		let gradient = map(i, 0, spectrum.length, 0, 50);
+		let waveformSpectrumAvg = spectrum[i] + (waveformScaled * 2) / 3;
+		let bassScale = map(bass, 0, 255, 0, 1.5);
+		let midScale = map(mid, 0, 255, 0, .25);
+		let highScale = map(high, 0, 255, 0, 50);
+
+		img.pixels[i] = red(waveformSpectrumAvg * bassScale + gradient - 50);
+		img.pixels[i+1] = green(waveformSpectrumAvg * midScale);
+		img.pixels[i+2] = blue(waveformSpectrumAvg * highScale);
+		img.pixels[i+3] = alpha(waveformSpectrumAvg);
 	}
 
 	img.updatePixels();
-	image(img, width/4, 0, width, height);
+	image(img, width/6, 0, width, height);
 
 	push();
-	translate(width - width/4, height);
+	translate(width - width/6, height);
 	rotate(radians(180));
 	image(img, 0, 0, width, height);
 	pop();
@@ -308,11 +324,11 @@ function spectrumBars(){
 
 function mandala(){
 	colorMode(HSB);
-	background(255);
+	background(0);
 	translate(width/2, height/2);
 	drawMandala(16, width*.45, .002);
-	drawMandala(32, width*.35, -.004);
-	drawMandala(64, width*.25, .008);
+	drawMandala(20, width*.35, -.004);
+	drawMandala(28, width*.25, .008);
 }
 
 function drawMandala(segments, radius, rotationScale){
@@ -324,7 +340,7 @@ function drawMandala(segments, radius, rotationScale){
 	for (let i = 0; i < segments; i++){
 		rotate(TWO_PI / segments);
 
-		strokeWeight(volEased*7);
+		strokeWeight(volEased * width * .004);
 		stroke(bass, saturationScale, brightnessScale);
 		line(bass, radius*volEased, 0, radius);
 		stroke(mid, saturationScale, brightnessScale);
@@ -332,7 +348,7 @@ function drawMandala(segments, radius, rotationScale){
 		stroke(high, saturationScale, brightnessScale);
 		line(high, radius*volEased, 0, radius);
 
-		strokeWeight(volEased*75);
+		strokeWeight(volEased * width * .03);
 		stroke(map(volEased, 0, 1, 0, 255));
 		point(0, radius);
 		stroke(bass, saturationScale, brightnessScale);
