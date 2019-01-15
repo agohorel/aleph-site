@@ -41,6 +41,7 @@ let hitPlayTimestamp, currentTime, ellapsedTime;
 let modes = [];
 let hasBegunPlaying = false;
 let quarterNoteCounter = undefined;
+let img;
 
 function preload(){
 	song = loadSound("../audio/song.mp3"); // 129 bpm
@@ -48,6 +49,7 @@ function preload(){
 
 function setup(){
 	canvasDiv = document.getElementById("p5-container");
+	pixelDensity(1); // force 1:1 pixel density on high DPI screens (mobile)
 	w = canvasDiv.offsetWidth;
 	h = canvasDiv.offsetHeight;
 	cnv = createCanvas(w, h);
@@ -58,8 +60,11 @@ function setup(){
 	fft = new p5.FFT();
 
 	// put modes to cycle through here
-	modes = [wave, spectrumBars, spec, mandala];
-	// modes = [spectrumBars];
+	// modes = [wave, spectrumBars, spec, mandala];
+	modes = [spectrumBars];
+
+	analyzeAudio();
+	img = createImage(spectrum.length, 1);
 }
 
 function draw(){
@@ -68,10 +73,10 @@ function draw(){
 	currentTime = Date.now();
 	ellapsedTime = currentTime - hitPlayTimestamp;
 
-	// magic num. 20 is 60fps = 16.667ms frametime rounded up to 20 (this seems janky but it seems to work pretty well?)
-	if (hasBegunPlaying && ellapsedTime % bpmToMs(129) < 20) {
-		quarterNoteCounter++; // re-enable to cycle through modes
-		resetParams();
+	// magic num 17 = target 60fps frametime (16.67) rounded up
+	if (hasBegunPlaying && ellapsedTime % bpmToMs(129) < 17) {
+		// quarterNoteCounter++; // re-enable to cycle through modes
+		// resetParams();
 		
 		if (quarterNoteCounter >= modes.length){
 			quarterNoteCounter = 0;
@@ -277,17 +282,24 @@ function wave() {
 
 function spectrumBars(){
 	colorMode(RGB);
-	rectMode(CENTER);
-	background(255);
-	noStroke();
+	background(0);
+	img.loadPixels();
 
-	for (let i = 0; i < spectrum.length; i++){
-		// let x = map(spectrum[i], 0, 255, 0, width);
-		let y = map(spectrum[i], 0, 255, 0, height);
-		fill(random(spectrum[i]));
-		rect(width/2 - width/4, y, width/6, spectrum[i]);
-		rect(width/2 + width/4, y, width/6, spectrum[i]);
+	for (let i = 0; i < spectrum.length; i+=4){
+		img.pixels[i] = red(spectrum[i]);
+		img.pixels[i+1] = green(spectrum[i]);
+		img.pixels[i+2] = blue(spectrum[i]);
+		img.pixels[i+3] = alpha(spectrum[i]);
 	}
+
+	img.updatePixels();
+	image(img, width/4, 0, width, height);
+
+	push();
+	translate(width - width/4, height);
+	rotate(radians(180));
+	image(img, 0, 0, width, height);
+	pop();
 }
 
 //////////////////////////////////////////////////////////////////////////////
