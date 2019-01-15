@@ -42,6 +42,7 @@ let modes = [];
 let hasBegunPlaying = false;
 let quarterNoteCounter = undefined;
 let img;
+let pastBuffer, padding, barWidth;
 
 function preload(){
 	song = loadSound("../audio/song.mp3"); // 129 bpm
@@ -61,10 +62,14 @@ function setup(){
 
 	// put modes to cycle through here
 	// modes = [wave, spectrumBars, spec, mandala];
-	modes = [mandala];
+	modes = [wave];
 
 	analyzeAudio(); // run initially so spectrum.length, etc. is not undefined
 	img = createImage(spectrum.length, 1);
+
+	pastBuffer = new Array(40);
+	padding = 1;
+	barWidth = width / (pastBuffer.length * padding);
 }
 
 function draw(){
@@ -257,23 +262,41 @@ function spec(){
 //////////////////////////////////////////////////////////////////////////////
 
 function wave() {
-	colorMode(RGB);
-	fill(0, 100 - map(volume, 0, 1, 0, 100));
-	noStroke();
-	rect(0, 0, w, h);
-
 	colorMode(HSB);
-	noFill();
-	beginShape();
-	stroke(bass, mid, high*1.25);
-	strokeWeight(volume * 50);
+	background(0);
+	noStroke();
 
-	for (let i = 0; i< waveform.length; i++){
-		let x = map(i, 0, waveform.length, 0, width);
-		let y = map(waveform[i], -1, 1, 0, height);
-		vertex(x,y);
+	pastBuffer.splice(0, 1); // remove first volume entry
+	pastBuffer.push(volume); // replace with new value
+
+	for (let i = 0; i < pastBuffer.length; i++){
+		let x = map(i, 0, pastBuffer.length, width, width/2);
+		let barHeight = map(pastBuffer[i], 0, 1, 0, -height);
+		let rainbow = map(i, 0, pastBuffer.length, 180, 360);
+		let volScaled = map(volEased, 0, .5, 0, 100);
+		
+		fill(rainbow, 25 + volScaled, volScaled);
+		
+		// left bottom rects
+		rect(x, height/2, barWidth, barHeight);
+		rect(x, height/2, barWidth, -barHeight);
+
+		// right bottom rects
+		rect(width-x, height/2, barWidth, barHeight);
+		rect(width-x, height/2, barWidth, -barHeight);
+
+		push();
+		colorMode(RGB);
+		fill(75 - volScaled, volScaled*10);
+		// left top rects
+		rect(x, height/2, barWidth, barHeight * volEased);
+		rect(x, height/2, barWidth, -barHeight * volEased);
+		// right top rects
+		rect(width-x, height/2, barWidth, barHeight * volEased);
+		rect(width-x, height/2, barWidth, -barHeight * volEased);
+		pop();
 	}
-	endShape();
+
 }
 
 //////////////////////////////////////////////////////////////////////////////
