@@ -343,9 +343,9 @@ function drawMandala(segments, radius, rotationScale){
 		strokeWeight(volEased * width * .004);
 		stroke(bass, saturationScale, brightnessScale);
 		line(bass, radius*volEased, 0, radius);
-		stroke(mid, saturationScale, brightnessScale);
+		stroke(mid+50, saturationScale, brightnessScale);
 		line(mid, radius*volEased, 0, radius);
-		stroke(high, saturationScale, brightnessScale);
+		stroke(high-50, saturationScale, brightnessScale);
 		line(high, radius*volEased, 0, radius);
 
 		strokeWeight(volEased * width * .03);
@@ -353,9 +353,9 @@ function drawMandala(segments, radius, rotationScale){
 		point(0, radius);
 		stroke(bass, saturationScale, brightnessScale);
 		point(bass, radius*volEased);
-		stroke(mid, saturationScale, brightnessScale);
+		stroke(mid+50, saturationScale, brightnessScale);
 		point(mid, radius*volEased);
-		stroke(high, saturationScale, brightnessScale);
+		stroke(high-50, saturationScale, brightnessScale);
 		point(high, radius*volEased);
 	}
 }
