@@ -244,24 +244,28 @@ function osc(angle, scalar){
 ////////////////////////////   SPECTRUM    ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 
-function spec(){
-	// colorMode(RGB); 
-	let h = bass, s = mid, b = high;
+function spec(){	
 	background(0);
 	noStroke();
 	
 	for (let i = 0; i < spectrum.length; i++){
+		let hue = map(bass, 0, 255, 100, 200), 
+			s = map(mid, 0, 255, 75, 100), 
+			b = map(high, 0, 255, 50, 100);
+
 		let x = map(i, 0, spectrum.length, 0, width*5);
 	    let h = -height + map(spectrum[i], 0, 255, height, 0);
-	    let h2 = map(spectrum[i], 0, 255, height, 0);
+
+	    // make background tiles wider/sparser
+	    if (i % 12 === 0){
+	    	fill(hue-i*.125, s-i*.125, b-i*.25);
+			rect(x, 0, width/spectrum.length*60+2, height);
+	    }
+
+	    // draw spectrum
+	    fill(volEased*100+hue-i*.125, s-i*.125, b-i*.25);
+	    rect(x, height, width/spectrum.length*3, h);
 	    
-	    fill(h-i, s-i*.125, b-i*.125);
-	    rect(x, height, width/spectrum.length*5+1, h);
-	    
-	    fill(map(volEased, 0, .5, 180, 360)+i*.125,
-	    	 map(volEased, 0, 1, 0, 50)+i*.125,
-    	 	 map(volEased, 0, 1, 0, 50)+i*.125);
-	    rect(x, 0, width/spectrum.length*5+1, h2);
 	}
 }
 
