@@ -62,7 +62,7 @@ function setup(){
 
 	// put modes to cycle through here
 	// modes = [wave, spectrumBars, spec, mandala];
-	modes = [wave];
+	modes = [spec];
 
 	analyzeAudio(); // run initially so spectrum.length, etc. is not undefined
 	img = createImage(spectrum.length, 1);
@@ -244,16 +244,24 @@ function osc(angle, scalar){
 ////////////////////////////   SPECTRUM    ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 
-function spec(){ 
-	let r = bass, g = mid, b = high;
+function spec(){
+	// colorMode(RGB); 
+	let h = bass, s = mid, b = high;
 	background(0);
 	noStroke();
-	fill(r, g, b);
-	 
+	
 	for (let i = 0; i < spectrum.length; i++){
-		let x = map(i, 0, spectrum.length, 0, width*4);
+		let x = map(i, 0, spectrum.length, 0, width*5);
 	    let h = -height + map(spectrum[i], 0, 255, height, 0);
-	    rect(x, height, width / spectrum.length*4, h);
+	    let h2 = map(spectrum[i], 0, 255, height, 0);
+	    
+	    fill(h-i, s-i*.125, b-i*.125);
+	    rect(x, height, width/spectrum.length*5+1, h);
+	    
+	    fill(map(volEased, 0, .5, 180, 360)+i*.125,
+	    	 map(volEased, 0, 1, 0, 50)+i*.125,
+    	 	 map(volEased, 0, 1, 0, 50)+i*.125);
+	    rect(x, 0, width/spectrum.length*5+1, h2);
 	}
 }
 
