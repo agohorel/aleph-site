@@ -12,7 +12,7 @@ playBtn.addEventListener("click", () => {
 	if (!song.isPlaying()){
 		song.loop();
 		hasBegunPlaying = true;
-		quarterNoteCounter = 0;
+		quarterNoteCounter = -1;
 		hitPlayTimestamp = Date.now();
 		descriptionBox[0].style.opacity = 0;
 	} else { return; }	
@@ -60,9 +60,9 @@ function setup(){
 	amplitude = new p5.Amplitude();
 	fft = new p5.FFT();
 
-	// put modes to cycle through here
-	// modes = [wave, spectrumBars, spec, mandala];
-	modes = [spec];
+	// put modes to cycle through here (this determines the order)
+	modes = [wave, spectrumBars, mandala, spec];
+	// modes = [spec];
 
 	analyzeAudio(); // run initially so spectrum.length, etc. is not undefined
 	img = createImage(spectrum.length, 1);
@@ -80,8 +80,8 @@ function draw(){
 
 	// magic num 17 = target 60fps frametime (16.67) rounded up
 	if (hasBegunPlaying && ellapsedTime % bpmToMs(129) < 17) {
-		// quarterNoteCounter++; // re-enable to cycle through modes
-		// resetParams();
+		quarterNoteCounter++; // re-enable to cycle through modes
+		resetParams();
 		
 		if (quarterNoteCounter >= modes.length){
 			quarterNoteCounter = 0;
@@ -244,7 +244,8 @@ function osc(angle, scalar){
 ////////////////////////////   SPECTRUM    ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 
-function spec(){	
+function spec() {
+	colorMode(HSB);
 	background(0);
 	noStroke();
 	
