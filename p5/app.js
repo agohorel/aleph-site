@@ -250,7 +250,7 @@ function spec() {
 	noStroke();
 	
 	for (let i = 0; i < spectrum.length; i++){
-		let hue = map(bass, 0, 255, 100, 200), 
+		let hue = map(bass, 0, 255, 80, 200), 
 			s = map(mid, 0, 255, 75, 100), 
 			b = map(high, 0, 255, 50, 100);
 
@@ -259,12 +259,12 @@ function spec() {
 
 	    // make background tiles wider/sparser
 	    if (i % 12 === 0){
-	    	fill(hue-i*.125, s-i*.125, b-i*.25);
+	    	fill(hue-i*.125, s+i*.125, b-i*.25);
 			rect(x, 0, width/spectrum.length*60+2, height);
 	    }
 
 	    // draw spectrum
-	    fill(volEased*100+hue-i*.125, s-i*.125, b-i*.25);
+	    fill(0, 0, map(volEased, 0, .5, 0, 100));
 	    rect(x, height, width/spectrum.length*3, h);
 	    
 	}
