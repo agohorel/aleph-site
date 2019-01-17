@@ -62,7 +62,7 @@ function setup(){
 
 	// put modes to cycle through here (this determines the order)
 	modes = [wave, spectrumBars, mandala, spec];
-	// modes = [spec];
+	// modes = [wave];
 
 	analyzeAudio(); // run initially so spectrum.length, etc. is not undefined
 	img = createImage(spectrum.length, 1);
@@ -291,22 +291,22 @@ function wave() {
 		fill(rainbow, 25 + volScaled, volScaled);
 		
 		// left bottom rects
-		rect(x, height/2, barWidth, barHeight);
-		rect(x, height/2, barWidth, -barHeight);
+		rect(x, height/2, barWidth*volEased, barHeight*(volEased*2));
+		rect(x, height/2, barWidth*volEased, -barHeight*(volEased*2));
 
 		// right bottom rects
-		rect(width-x, height/2, barWidth, barHeight);
-		rect(width-x, height/2, barWidth, -barHeight);
+		rect(width-x, height/2, barWidth*volEased, barHeight*(volEased*2));
+		rect(width-x, height/2, barWidth*volEased, -barHeight*(volEased*2));
 
 		push();
 		colorMode(RGB);
 		fill(75 - volScaled, volScaled*10);
 		// left top rects
-		rect(x, height/2, barWidth, barHeight * volEased);
-		rect(x, height/2, barWidth, -barHeight * volEased);
+		rect(x, height/2, barWidth*volEased, barHeight*volEased);
+		rect(x, height/2, barWidth*volEased, -barHeight*volEased);
 		// right top rects
-		rect(width-x, height/2, barWidth, barHeight * volEased);
-		rect(width-x, height/2, barWidth, -barHeight * volEased);
+		rect(width-x, height/2, barWidth*volEased, barHeight*volEased);
+		rect(width-x, height/2, barWidth*volEased, -barHeight*volEased);
 		pop();
 	}
 
