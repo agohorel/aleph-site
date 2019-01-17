@@ -12,7 +12,7 @@ playBtn.addEventListener("click", () => {
 	if (!song.isPlaying()){
 		song.loop();
 		hasBegunPlaying = true;
-		quarterNoteCounter = -1;
+		beatCounter = -1;
 		hitPlayTimestamp = Date.now();
 		descriptionBox[0].style.opacity = 0;
 	} else { return; }	
@@ -21,7 +21,7 @@ playBtn.addEventListener("click", () => {
 stopBtn.addEventListener("click", () => {
 	song.stop();
 	hasBegunPlaying = false;
-	quarterNoteCounter = undefined; // re-set quarterNoteCounter to undefined to trigger default case in switch
+	beatCounter = undefined; // re-set beatCounter to undefined to trigger default case in switch
 	clear();
 	background(0);
 	descriptionBox[0].style.opacity = 1;
@@ -40,7 +40,7 @@ let volEased = 0.001, leftVolEased = 0.001, rightVolEased = 0.001;
 let hitPlayTimestamp, currentTime, ellapsedTime;
 let modes = [];
 let hasBegunPlaying = false;
-let quarterNoteCounter = undefined;
+let beatCounter = undefined;
 let img;
 let pastBuffer, padding, barWidth;
 
@@ -62,7 +62,7 @@ function setup(){
 
 	// put modes to cycle through here (this determines the order)
 	modes = [wave, spectrumBars, mandala, spec];
-	// modes = [wave];
+	// modes = [spectrumBars];
 
 	analyzeAudio(); // run initially so spectrum.length, etc. is not undefined
 	img = createImage(spectrum.length, 1);
@@ -80,15 +80,15 @@ function draw(){
 
 	// magic num 17 = target 60fps frametime (16.67) rounded up
 	if (hasBegunPlaying && ellapsedTime % bpmToMs(129) < 17) {
-		quarterNoteCounter++; // re-enable to cycle through modes
+		beatCounter++; // re-enable to cycle through modes
 		resetParams();
 		
-		if (quarterNoteCounter >= modes.length){
-			quarterNoteCounter = 0;
+		if (beatCounter >= modes.length){
+			beatCounter = 0;
 		}	
 	}
 
-	switch(quarterNoteCounter){
+	switch(beatCounter){
 		case 0:
 			modes[0]();
 		break;
@@ -146,7 +146,7 @@ function smoother(volume, leftVol, rightVol, easing){
 }
 
 function bpmToMs(bpm) {
-	return 60000 / bpm * 2; // 1/2 notes at given tempo
+	return 60000 / bpm * 4; // whole notes at given tempo
 }
 
 function resetParams(){
@@ -318,8 +318,8 @@ function wave() {
 
 function spectrumBars(){
 	colorMode(RGB);
-	fill(0, 75 - map(volume, 0, 1, 0, 255));
 	noStroke();
+	fill(0, 75 - map(volume, 0, 1, 0, 255));
 	rect(0, 0, width, height);
 
 	// only copy pixels every other frame
