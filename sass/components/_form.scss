@@ -1,0 +1,48 @@
+.form {
+	&__group:not(:last-child){
+		margin-bottom: 2rem;
+
+	}
+
+	&__input{
+		font-size: 1.2rem;
+		font-family: inherit;
+		color: inherit;
+		padding: 1.5rem 2 rem;
+		border-radius: $border-radius;
+		background-color: rgba($color-white, .5);
+		border: none;
+		border-bottom: 3px solid transparent; // account for border-bottom when focused
+		width: 67%;
+		display: block;
+		transition: .2s linear all;
+
+		&:focus {
+			outline: none;
+			@include shadow(1rem, 2rem, .1);
+			border-bottom: 3px solid $aleph-green;
+		}
+
+		&:focus:invalid {
+			border-bottom: 3px solid $aleph-warn;
+		}
+
+		&::-webkit-input-placeholder {
+			color: #999;
+		}
+	}
+
+	&__label {
+		font-size: 1.2rem;
+		font-weight: 700;
+		margin-top: .7rem;
+		transition: .5s linear all;
+		display: block;
+	}
+
+	&__input:placeholder-shown + &__label {
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-2rem);
+	}
+}
