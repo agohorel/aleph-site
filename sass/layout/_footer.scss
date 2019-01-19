@@ -1,0 +1,54 @@
+.footer {
+	background-color: $aleph-grey;
+	padding: 2rem 0;
+	font-size: $font-size-h3;
+
+	&__footer-box {
+		text-align: center;
+	}
+
+	&__logo {
+		width: 10rem;
+		height: auto;
+	}
+
+	&__navigation {
+		padding: 2rem 0;
+	}
+
+	&__list {
+		list-style: none;
+	}
+
+	&__item {
+		display: inline-block;
+
+		&:not(:last-child) {
+			margin-right: 2rem;
+		}
+	}
+
+	&__link {
+		transition: .1s linear color;
+
+		&:link,
+		&:visited {
+			color: $aleph-light-grey;
+			text-decoration: none;
+			display: inline-block;
+		}
+
+		&:hover {
+			color: $aleph-blue;
+		}
+
+		&:active {
+			color: $aleph-green;
+		}
+	}
+
+	&__copyright {
+		font-size: $font-size-paragraph;
+		color: #999;
+	}
+}
