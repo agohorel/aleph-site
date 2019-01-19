@@ -113,15 +113,15 @@ body {
   background-image: linear-gradient(to bottom right, black, rgba(255, 255, 255, 0.8)), url(../img/bent.jpg);
   background-size: cover; }
 
-.section-downloads {
-  background-color: #d4e1e6;
-  padding: 20rem 0;
-  margin-top: 2rem; }
-
 .section-demonstration {
   padding: 15rem 0;
   margin-top: 2rem;
   position: relative; }
+
+.section-downloads {
+  background-color: #d4e1e6;
+  padding: 20rem 0;
+  margin-top: 2rem; }
 
 .section-subscribe {
   padding: 15rem 0;
