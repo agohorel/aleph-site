@@ -126,7 +126,7 @@ body {
 .section-subscribe {
   padding: 15rem 0;
   margin-top: 2rem;
-  background-image: linear-gradient(to right bottom, #12e4a6, #00b4f6); }
+  background-image: linear-gradient(to right bottom, #00b4f6, #12e4a6); }
 
 .subscribe {
   background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 0) 50%), url(../img/circle3.jpg);
