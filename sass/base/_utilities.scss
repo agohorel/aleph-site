@@ -1,8 +1,28 @@
 .u-center-text { text-align: center !important; }
 
-.u-margin-bottom-large { margin-bottom: 14rem !important; }
-.u-margin-bottom-medium { margin-bottom: 4rem !important; }
-.u-margin-bottom-small { margin-bottom: .5rem !important; }
+.u-margin-bottom-large { 
+	margin-bottom: 14rem !important; 
+	
+	@include responsive($tablet-portrait){
+		margin-bottom: 7rem !important;
+	}
+}
+
+.u-margin-bottom-medium { 
+	margin-bottom: 4rem !important; 
+
+	@include responsive($tablet-portrait){
+		margin-bottom: 2rem !important;
+	}
+}
+
+.u-margin-bottom-small { 
+	margin-bottom: .5rem !important;
+
+	@include responsive($tablet-portrait){
+		margin-bottom: .25rem !important;
+	}
+}
 
 .u-unskew {
 	transform: skewX(12deg) !important;

@@ -4,6 +4,10 @@
 	padding: 14rem 0;
 	margin-top: 2rem;
 	padding-bottom: 21rem;
+
+	@include responsive($tablet-portrait){
+		padding: 10rem 0;
+	}
 }
 
 .section-features {
@@ -24,6 +28,10 @@
 	padding: 15rem 0;
 	margin-top: 2rem;
 	position: relative;
+	
+	@include responsive($tablet-landscape){
+		padding: 10rem 0;
+	}
 }
 
 .section-downloads {
@@ -31,6 +39,10 @@
 	background-color: $aleph-light-grey;
 	padding: 20rem 0;
 	margin-top: 2rem;
+
+	@include responsive($tablet-landscape){
+		padding: 5rem 0;
+	}
 }
 
 .section-subscribe {
