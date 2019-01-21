@@ -15,3 +15,23 @@
 	-webkit-background-clip: text;
 	color: transparent;
 }
+
+// available options:
+// phone
+// tablet-portrait
+// tablet-landscape
+// large-desktop
+
+@mixin responsive($breakpoint) {
+	@if ($breakpoint < $large-desktop) {
+	    @media (max-width: $breakpoint) {
+	        @content
+	   }
+	}
+
+	@if ($breakpoint >= $large-desktop) {
+	    @media (min-width: $breakpoint) {
+	        @content
+	   }
+	}
+}

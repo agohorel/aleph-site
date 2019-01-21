@@ -8,9 +8,25 @@
 html {
   font-size: 62.5%;
   scroll-behavior: smooth; }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (max-width: 37.5em) {
+    html {
+      font-size: 43.75%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 body {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  padding: 2rem; }
+  @media (max-width: 56.25em) {
+    body {
+      padding: 0; } }
 
 @keyframes fadeInHeader {
   0% {
@@ -37,8 +53,7 @@ body {
   font-family: "Roboto Mono", monospace;
   font-weight: 300;
   line-height: 1.5;
-  color: #060b0d;
-  padding: 2rem; }
+  color: #060b0d; }
 
 .heading-primary {
   backface-visibility: hidden;
@@ -52,6 +67,11 @@ body {
     letter-spacing: 3.5rem;
     margin-right: -3.5rem;
     animation: fadeInMain .5s; }
+    @media (max-width: 37.5em) {
+      .heading-primary--main {
+        letter-spacing: 1rem;
+        margin-right: -1rem;
+        font-size: 5rem; } }
   .heading-primary--sub {
     color: #d4e1e6;
     display: block;
@@ -60,7 +80,11 @@ body {
     letter-spacing: .17rem;
     animation: fadeIn .75s .75s;
     animation-fill-mode: backwards;
-    text-align: left; }
+    text-align: center; }
+    @media (max-width: 37.5em) {
+      .heading-primary--sub {
+        letter-spacing: 0;
+        font-size: 1rem; } }
 
 .heading-secondary {
   font-size: 3rem;
@@ -69,6 +93,12 @@ body {
   background-image: linear-gradient(to right, #12e4a6, #00b4f6);
   -webkit-background-clip: text;
   color: transparent; }
+  @media (max-width: 56.25em) {
+    .heading-secondary {
+      font-size: 2.5rem; } }
+  @media (max-width: 37.5em) {
+    .heading-secondary {
+      font-size: 2rem; } }
 
 .heading-tertiary {
   font-size: 1.4rem;
@@ -447,6 +477,12 @@ body {
   margin: 0 auto; }
   .row:not(:last-child) {
     margin-bottom: 8rem; }
+    @media (max-width: 56.25em) {
+      .row:not(:last-child) {
+        margin-bottom: 6rem; } }
+  @media (max-width: 56.25em) {
+    .row {
+      max-width: 50rem; } }
   .row::after {
     content: "";
     display: table;
@@ -455,6 +491,11 @@ body {
     float: left; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 6rem; }
+    @media (max-width: 56.25em) {
+      .row [class^="col-"] {
+        width: 100% !important;
+        margin-right: 0;
+        margin-bottom: 6rem; } }
   .row .col-1-of-2 {
     width: calc((100% - 6rem) / 2); }
   .row .col-1-of-3 {

@@ -4,6 +4,14 @@
 
     &:not(:last-child) {
         margin-bottom: $grid-gutter-vertical;
+
+        @include responsive($tablet-portrait) {
+            margin-bottom: $grid-gutter-vertical-small;
+        }
+    }
+
+    @include responsive($tablet-portrait) {
+        max-width: 50rem;
     }
     
     @include clearfix;
@@ -14,6 +22,13 @@
         &:not(:last-child) {
             margin-right: $grid-gutter-horizontal;
         }
+
+        @include responsive($tablet-portrait) {
+            width: 100% !important;
+            margin-right: 0;
+            margin-bottom: $grid-gutter-vertical-small;
+        }
+
     }
 
     .col-1-of-2 {
