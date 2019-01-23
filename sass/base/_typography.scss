@@ -84,3 +84,9 @@ body {
 	border-radius: $border-radius;
 	transform: skewX(-12deg);
 }
+
+.about__body {
+	@include responsive($phone){
+		padding: 3rem 5rem;
+	}
+}

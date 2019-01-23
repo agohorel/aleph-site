@@ -117,6 +117,10 @@ body {
   border-radius: 2px;
   transform: skewX(-12deg); }
 
+@media (max-width: 37.5em) {
+  .about__body {
+    padding: 3rem 5rem; } }
+
 .u-center-text {
   text-align: center !important; }
 
@@ -149,6 +153,16 @@ body {
 
 .u-unskew {
   transform: skewX(12deg) !important; }
+
+.section-anchor {
+  display: block;
+  visibility: hidden;
+  height: 2.5vh;
+  margin-top: -2.5vh; }
+  @media (max-width: 56.25em) {
+    .section-anchor {
+      height: 0;
+      margin-top: 0; } }
 
 .section-about {
   height: 95vh;

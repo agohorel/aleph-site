@@ -1,3 +1,15 @@
+.section-anchor {
+	display: block;
+	visibility: hidden;
+	height: 2.5vh;
+	margin-top: -2.5vh;
+
+	@include responsive($tablet-portrait){
+		height: 0;
+		margin-top: 0;
+	}
+}
+
 .section-about {
 	height: 95vh;
 	background-color: $aleph-light-grey;
@@ -7,6 +19,7 @@
 
 	@include responsive($tablet-portrait){
 		padding: 10rem 0;
+		height: 100vh;
 	}
 }
 
@@ -21,6 +34,10 @@
 									  rgba($color-white, .8)), 
 								      url(../img/bent.jpg);
 	background-size: cover;
+
+	@include responsive($tablet-portrait){
+		height: 100vh;
+	}
 }
 
 .section-demonstration {
@@ -30,6 +47,7 @@
 	position: relative;
 	
 	@include responsive($tablet-landscape){
+		height: 100vh;
 		padding: 10rem 0;
 	}
 }
@@ -42,6 +60,7 @@
 
 	@include responsive($tablet-portrait){
 		padding: 10rem 0;
+		height: 100vh;
 	}
 
 	@include responsive($phone){
@@ -54,6 +73,10 @@
 	padding: 15rem 0;
 	margin-bottom: 2.5vh;
 	background-image: linear-gradient(to right bottom, $aleph-blue, $aleph-green);
+
+	@include responsive($tablet-portrait){
+		height: 100vh;
+	}
 }
 
 .subscribe {
