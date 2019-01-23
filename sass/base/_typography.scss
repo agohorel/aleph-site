@@ -39,7 +39,7 @@ body {
 
 		@include responsive($phone){
 			letter-spacing: 0;
-			font-size: 1.2rem;
+			font-size: 1rem;
 		}
 
 	}
@@ -54,11 +54,11 @@ body {
 	color: transparent;
 
 	@include responsive($tablet-portrait){
-		font-size: 2.5rem;
+		font-size: 3rem;
 	}
 
 	@include responsive($phone){
-		font-size: 2rem;
+		font-size: 2.5rem;
 	}
 
 }

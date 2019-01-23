@@ -1,5 +1,6 @@
 .header {
-	height: 95vh;
+	height: 100vh;
+	margin-bottom: 2.5vh;
 	background-image: linear-gradient(to bottom right, 
 									  rgba($color-black, 1),
 									  rgba($color-white, .5)), 
@@ -30,7 +31,7 @@
 	}
 
 	@inclide responsive($tablet-portrait) {
-		height: 100%;
+		height: 100vh;
 	}
 
 	@include responsive($phone) {
@@ -45,7 +46,7 @@
 		}
 
 		&__logo {
-			height: 28rem;
+			height: 24rem;
 		}
 	}
 }

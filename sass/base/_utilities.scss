@@ -6,6 +6,10 @@
 	@include responsive($tablet-portrait){
 		margin-bottom: 7rem !important;
 	}
+
+	@include responsive($phone){
+		margin-bottom: 4rem !important;
+	}
 }
 
 .u-margin-bottom-medium { 
@@ -14,6 +18,10 @@
 	@include responsive($tablet-portrait){
 		margin-bottom: 2rem !important;
 	}
+
+	@include responsive($phone){
+		margin-bottom: 1.75rem !important;
+	}
 }
 
 .u-margin-bottom-small { 
@@ -21,6 +29,10 @@
 
 	@include responsive($tablet-portrait){
 		margin-bottom: .25rem !important;
+	}
+
+	@include responsive($phone){
+		margin-bottom: .2rem !important;
 	}
 }
 
