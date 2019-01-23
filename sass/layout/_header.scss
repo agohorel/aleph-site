@@ -1,5 +1,5 @@
 .header {
-	height: 100vh;
+	height: 95vh;
 	margin-bottom: 2.5vh;
 	background-image: linear-gradient(to bottom right, 
 									  rgba($color-black, 1),
@@ -30,7 +30,7 @@
 		text-align: center; 
 	}
 
-	@inclide responsive($tablet-portrait) {
+	@include responsive($tablet-portrait) {
 		height: 100vh;
 	}
 

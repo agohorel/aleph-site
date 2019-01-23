@@ -334,7 +334,8 @@ body {
   text-align: center;
   border-radius: 2px;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
-  transition: .2s linear transform; }
+  transition: .2s linear transform;
+  margin: 0 auto; }
   .feature-box__icon {
     font-size: 6rem;
     margin-bottom: .5rem;
@@ -348,7 +349,8 @@ body {
   @media (max-width: 56.25em) {
     .feature-box {
       min-height: 5rem;
-      padding: 1rem; }
+      padding: 1rem;
+      max-width: 50%; }
       .feature-box__icon {
         font-size: 3.5rem; }
       .feature-box__text {
@@ -592,7 +594,7 @@ body {
   opacity: 1; }
 
 .header {
-  height: 100vh;
+  height: 95vh;
   margin-bottom: 2.5vh;
   background-image: linear-gradient(to bottom right, black, rgba(255, 255, 255, 0.5)), url(../img/warp.jpg);
   background-size: cover;
@@ -613,10 +615,9 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center; }
-
-@inclide responsive($tablet-portrait) {
-  .header {
-    height: 100vh; } }
+  @media (max-width: 56.25em) {
+    .header {
+      height: 100vh; } }
   @media (max-width: 37.5em) {
     .header__logo-box {
       width: 100%;

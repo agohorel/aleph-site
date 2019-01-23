@@ -7,6 +7,7 @@
 	border-radius: $border-radius;
 	@include shadow(1.5rem, 4rem, .15);
 	transition: .2s linear transform;
+	margin: 0 auto;
 
 	&__icon {
 		font-size: 6rem;
@@ -27,6 +28,7 @@
 	@include responsive($tablet-portrait) {
 		min-height: 5rem;
 		padding: 1rem;
+		max-width: 50%;
 
 		&__icon {
 			font-size: 3.5rem;

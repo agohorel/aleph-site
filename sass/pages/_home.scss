@@ -1,10 +1,12 @@
 .section-anchor {
 	display: block;
 	visibility: hidden;
+	// account for padding border when scrolling to anchors
 	height: 2.5vh;
 	margin-top: -2.5vh;
 
 	@include responsive($tablet-portrait){
+		// set to 0 for mobile displays, where there is no padding border
 		height: 0;
 		margin-top: 0;
 	}
