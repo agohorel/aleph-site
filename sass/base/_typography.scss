@@ -54,7 +54,7 @@ body {
 	color: transparent;
 
 	@include responsive($tablet-portrait){
-		font-size: 3rem;
+		font-size: 4rem;
 	}
 
 	@include responsive($phone){

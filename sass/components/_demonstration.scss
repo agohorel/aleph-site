@@ -13,6 +13,18 @@
 		transform: skewX(12deg);
 	}
 
+	&__subheading{
+		font-size: 2rem;
+	}
+
+	&__text {
+		transform: skewX(12deg);
+	}
+
+	&__text--description {
+		padding-top: 2rem;
+	}
+
 	@include responsive($tablet-portrait){
 		width: 100%;
 		padding: 2rem 3rem;
@@ -22,18 +34,14 @@
 	@include responsive($phone){
 		padding: 1rem 2rem;
 		transform: skewX(0deg);
-		height: 12rem;
-	}
+		height: 20rem;
 
-	&__text {
-		transform: skewX(12deg);
-
-		@include responsive($phone){
+		&__text {
 			transform: skewX(0deg);
 		}
-	}
 
-	&__text--description {
-		padding-top: 2rem;
+		&__text--description {
+			font-size: 1.5rem;
+		}
 	}
 }

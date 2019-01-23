@@ -23,4 +23,17 @@
 	&__text {
 		font-size: $font-size-paragraph;
 	}
+
+	@include responsive($tablet-portrait) {
+		min-height: 5rem;
+		padding: 1rem;
+
+		&__icon {
+			font-size: 3.5rem;
+		}
+
+		&__text {
+			line-height: 1.25;
+		}
+	}
 }
