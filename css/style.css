@@ -98,7 +98,7 @@ body {
       font-size: 4rem; } }
   @media (max-width: 37.5em) {
     .heading-secondary {
-      font-size: 2.5rem; } }
+      font-size: 3.5rem; } }
 
 .heading-tertiary {
   font-size: 1.5rem;
@@ -339,8 +339,6 @@ body {
   background-color: rgba(255, 255, 255, 0.8);
   font-size: 1.5rem;
   padding: 2.5rem;
-  min-height: 24rem;
-  max-height: 24rem;
   text-align: center;
   border-radius: 2px;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
@@ -466,17 +464,17 @@ body {
   .demonstration__text {
     transform: skewX(12deg); }
   .demonstration__text--description {
-    padding-top: 2rem; }
+    padding-top: 1rem; }
   @media (max-width: 56.25em) {
     .demonstration {
       width: 100%;
-      padding: 2rem 3rem;
-      height: 14rem; } }
+      padding: 2rem 3rem 0rem 3rem;
+      height: 13rem; } }
   @media (max-width: 37.5em) {
     .demonstration {
       padding: 1rem 2rem;
       transform: skewX(0deg);
-      height: 20rem; }
+      height: 18rem; }
       .demonstration__text {
         transform: skewX(0deg); }
       .demonstration__text--description {

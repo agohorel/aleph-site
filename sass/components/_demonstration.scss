@@ -22,19 +22,19 @@
 	}
 
 	&__text--description {
-		padding-top: 2rem;
+		padding-top: 1rem;
 	}
 
 	@include responsive($tablet-portrait){
 		width: 100%;
-		padding: 2rem 3rem;
-		height: 14rem;
+		padding: 2rem 3rem 0rem 3rem;
+		height: 13rem;
 	}
 
 	@include responsive($phone){
 		padding: 1rem 2rem;
 		transform: skewX(0deg);
-		height: 20rem;
+		height: 18rem;
 
 		&__text {
 			transform: skewX(0deg);
