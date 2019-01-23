@@ -13,7 +13,6 @@
 		width: 100%;
 		backface-visibility: hidden;
 		border-radius: $border-radius;
-		// @include shadow(0.5rem, 1em, .15);
 
 		&--front {
 			background-image: linear-gradient(to bottom, darken($aleph-light-grey, 5%), darken($aleph-light-grey, 10%));
@@ -87,4 +86,45 @@
 		text-align: center;
 	}
 
+	@include responsive($tablet-portrait){
+		margin-left: 12rem;
+		height: auto;
+
+		&__side {
+			height: auto;
+			transition: all .5s ease;
+			position: relative;
+			border-radius: $border-radius;
+
+			&--back {
+				transform: rotateY(0deg);
+			}
+		}
+
+		&:hover &__side--front {
+			transform: rotateY(0deg);
+		}
+
+		&__heading {
+			font-size: $font-size-h3;
+			font-weight: 400;
+			text-align: center;
+			margin-bottom: 3rem;
+		}
+
+		&__icon {
+			font-size: 8rem;
+		}
+
+		&__download-container {
+			background-color: darken($aleph-light-grey, 10%);
+			width: inherit;
+			height: inherit;
+			padding: 2rem 0;
+		}
+
+		&__download-box {
+			text-align: center;
+		}
+	}
 }

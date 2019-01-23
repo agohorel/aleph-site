@@ -2,6 +2,13 @@
 	&__group:not(:last-child){
 		margin-bottom: 2rem;
 
+		@include responsive($tablet-portrait) {
+			margin-bottom: 1rem;
+		}
+
+		@include responsive($phone) {
+			margin-bottom: 0;
+		}
 	}
 
 	&__input{
@@ -16,6 +23,14 @@
 		width: 67%;
 		display: block;
 		transition: .2s linear all;
+
+		@include responsive($tablet-portrait) {
+			width: 85%;
+		}
+
+		@include responsive($phone) {
+			width: 100%;
+		}
 
 		&:focus {
 			outline: none;

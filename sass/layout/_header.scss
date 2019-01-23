@@ -28,4 +28,20 @@
 		transform: translate(-50%, -50%);
 		text-align: center; 
 	}
+
+	@include responsive($phone) {
+		&__logo-box {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: absolute;
+			top: 10%;
+			left: 0;
+		}
+
+		&__logo {
+			height: 28rem;
+		}
+	}
 }

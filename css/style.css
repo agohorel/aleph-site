@@ -174,9 +174,9 @@ body {
   background-color: #d4e1e6;
   padding: 20rem 0;
   margin-top: 2rem; }
-  @media (max-width: 75em) {
+  @media (max-width: 56.25em) {
     .section-downloads {
-      padding: 5rem 0; } }
+      padding: 10rem 0; } }
 
 .section-subscribe {
   height: 95vh;
@@ -185,15 +185,19 @@ body {
   background-image: linear-gradient(to right bottom, #00b4f6, #12e4a6); }
 
 .subscribe {
-  height: 95vh;
-  background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 50%, rgba(255, 255, 255, 0) 50%), url(../img/circle3.jpg);
+  background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 40%, rgba(255, 255, 255, 0) 50%), url(../img/circle3.jpg);
   background-size: cover;
-  height: 50rem;
   border-radius: 2px;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2); }
+  @media (max-width: 56.25em) {
+    .subscribe {
+      background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 60%, rgba(255, 255, 255, 0) 70%), url(../img/circle3.jpg); } }
   .subscribe__form {
     width: 50%;
     padding: 6rem; }
+    @media (max-width: 56.25em) {
+      .subscribe__form {
+        width: 70%; } }
 
 .btn, .btn:link, .btn:visited {
   font-family: Roboto, sans-serif;
@@ -359,9 +363,36 @@ body {
     transform: translate(-50%, -50%); }
   .card__download-box {
     text-align: center; }
+  @media (max-width: 56.25em) {
+    .card {
+      margin-left: 12rem;
+      height: auto; }
+      .card__side {
+        height: auto;
+        transition: all .5s ease;
+        position: relative;
+        border-radius: 2px; }
+        .card__side--back {
+          transform: rotateY(0deg); }
+      .card:hover .card__side--front {
+        transform: rotateY(0deg); }
+      .card__heading {
+        font-size: 1.4rem;
+        font-weight: 400;
+        text-align: center;
+        margin-bottom: 3rem; }
+      .card__icon {
+        font-size: 8rem; }
+      .card__download-container {
+        background-color: #b4cbd3;
+        width: inherit;
+        height: inherit;
+        padding: 2rem 0; }
+      .card__download-box {
+        text-align: center; } }
 
 .demonstration {
-  width: 67%;
+  width: 50%;
   height: 15rem;
   margin: 10rem auto;
   background-color: rgba(255, 255, 255, 0.6);
@@ -370,8 +401,23 @@ body {
   transform: skewX(-12deg);
   transition: 1s linear all;
   opacity: 1; }
+  .demonstration__heading {
+    transform: skewX(12deg); }
+  @media (max-width: 56.25em) {
+    .demonstration {
+      width: 100%;
+      padding: 2rem 3rem;
+      height: 14rem; } }
+  @media (max-width: 37.5em) {
+    .demonstration {
+      padding: 1rem 2rem;
+      transform: skewX(0deg);
+      height: 12rem; } }
   .demonstration__text {
     transform: skewX(12deg); }
+    @media (max-width: 37.5em) {
+      .demonstration__text {
+        transform: skewX(0deg); } }
   .demonstration__text--description {
     padding-top: 2rem; }
 
@@ -411,6 +457,12 @@ body {
 
 .form__group:not(:last-child) {
   margin-bottom: 2rem; }
+  @media (max-width: 56.25em) {
+    .form__group:not(:last-child) {
+      margin-bottom: 1rem; } }
+  @media (max-width: 37.5em) {
+    .form__group:not(:last-child) {
+      margin-bottom: 0; } }
 
 .form__input {
   font-size: 1.4rem;
@@ -424,6 +476,12 @@ body {
   width: 67%;
   display: block;
   transition: .2s linear all; }
+  @media (max-width: 56.25em) {
+    .form__input {
+      width: 85%; } }
+  @media (max-width: 37.5em) {
+    .form__input {
+      width: 100%; } }
   .form__input:focus {
     outline: none;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
@@ -505,6 +563,17 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center; }
+  @media (max-width: 37.5em) {
+    .header__logo-box {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 10%;
+      left: 0; }
+    .header__logo {
+      height: 28rem; } }
 
 .row {
   max-width: 114rem;
