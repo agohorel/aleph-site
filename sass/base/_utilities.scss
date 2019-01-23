@@ -12,6 +12,18 @@
 	}
 }
 
+.u-margin-bottom-medium-large { 
+	margin-bottom: 10rem !important; 
+	
+	@include responsive($tablet-portrait){
+		margin-bottom: 5rem !important;
+	}
+
+	@include responsive($phone){
+		margin-bottom: 2.5rem !important;
+	}
+}
+
 .u-margin-bottom-medium { 
 	margin-bottom: 4rem !important; 
 
