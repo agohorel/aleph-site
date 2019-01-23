@@ -29,6 +29,10 @@
 		text-align: center; 
 	}
 
+	@inclide responsive($tablet-portrait) {
+		height: 100%;
+	}
+
 	@include responsive($phone) {
 		&__logo-box {
 			width: 100%;
