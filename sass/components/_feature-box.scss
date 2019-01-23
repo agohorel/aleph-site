@@ -2,7 +2,8 @@
 	background-color: rgba($color-white, .8);
 	font-size: 1.5rem;
 	padding: 2.5rem;
-	min-height: 22rem;
+	min-height: 24rem;
+	max-height: 24rem;
 	text-align: center;
 	border-radius: $border-radius;
 	@include shadow(1.5rem, 4rem, .15);
