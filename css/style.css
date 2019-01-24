@@ -368,7 +368,8 @@ body {
   perspective: 150rem;
   position: relative;
   height: 19rem;
-  max-width: 25rem; }
+  max-width: 25rem;
+  margin: 0 auto; }
   .card__side {
     height: 19rem;
     transition: all .5s ease;
@@ -421,7 +422,6 @@ body {
     text-align: center; }
   @media (max-width: 56.25em) {
     .card {
-      margin-left: 12rem;
       height: auto; }
       .card__side {
         height: auto;
@@ -474,7 +474,7 @@ body {
     .demonstration {
       padding: 1rem 2rem;
       transform: skewX(0deg);
-      height: 18rem; }
+      height: 20rem; }
       .demonstration__text {
         transform: skewX(0deg); }
       .demonstration__text--description {
@@ -657,6 +657,9 @@ body {
     float: left; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 6rem; }
+      @media (max-width: 56.25em) {
+        .row [class^="col-"]:not(:last-child) {
+          margin-right: 0; } }
     @media (max-width: 56.25em) {
       .row [class^="col-"] {
         width: 100% !important;

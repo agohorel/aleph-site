@@ -21,6 +21,10 @@
 
         &:not(:last-child) {
             margin-right: $grid-gutter-horizontal;
+
+            @include responsive($tablet-portrait) {
+                margin-right: 0;
+            }
         }
 
         @include responsive($tablet-portrait) {

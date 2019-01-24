@@ -34,7 +34,7 @@
 	@include responsive($phone){
 		padding: 1rem 2rem;
 		transform: skewX(0deg);
-		height: 18rem;
+		height: 20rem;
 
 		&__text {
 			transform: skewX(0deg);

@@ -3,6 +3,7 @@
 	position: relative;
 	height: 19rem;
 	max-width: 25rem;
+	margin: 0 auto;
 
 	&__side {
 		height: 19rem;
@@ -87,7 +88,6 @@
 	}
 
 	@include responsive($tablet-portrait){
-		margin-left: 12rem;
 		height: auto;
 
 		&__side {
