@@ -191,7 +191,8 @@ body {
   justify-content: center;
   align-items: center;
   background-image: linear-gradient(to bottom right, black, rgba(255, 255, 255, 0.8)), url(../img/bent.jpg);
-  background-size: cover; }
+  background-size: cover;
+  width: 100%; }
   @media (max-width: 56.25em) {
     .section-features {
       height: 100vh; } }
@@ -358,7 +359,7 @@ body {
     .feature-box {
       min-height: 5rem;
       padding: 1rem;
-      max-width: 50%; }
+      max-width: 50vw; }
       .feature-box__icon {
         font-size: 3.5rem; }
       .feature-box__text {
@@ -657,14 +658,12 @@ body {
     float: left; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 6rem; }
-      @media (max-width: 56.25em) {
-        .row [class^="col-"]:not(:last-child) {
-          margin-right: 0; } }
     @media (max-width: 56.25em) {
       .row [class^="col-"] {
-        width: 100% !important;
-        margin-right: 0;
-        margin-bottom: 6rem; } }
+        width: 100% !important; }
+        .row [class^="col-"]:not(:last-child) {
+          margin-right: 0;
+          margin-bottom: 6rem; } }
   .row .col-1-of-2 {
     width: calc((100% - 6rem) / 2); }
   .row .col-1-of-3 {

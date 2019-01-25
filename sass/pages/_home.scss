@@ -36,6 +36,7 @@
 									  rgba($color-white, .8)), 
 								      url(../img/bent.jpg);
 	background-size: cover;
+	width: 100%;
 
 	@include responsive($tablet-portrait){
 		height: 100vh;
