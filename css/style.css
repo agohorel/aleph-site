@@ -634,10 +634,10 @@ body {
       justify-content: center;
       align-items: center;
       position: absolute;
-      top: 10%;
+      top: 10vh;
       left: 0; }
     .header__logo {
-      height: 24rem; } }
+      height: 50vw; } }
 
 .row {
   max-width: 114rem;
