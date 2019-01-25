@@ -66,9 +66,17 @@
 
 	        		<div class="col-1-of-2">
 	        			<div class="composition">
-	        				<img src="img/1.jpg" alt="Photo1" class="composition__photo composition__photo--p1">
-	        				<img src="img/2.jpg" alt="Photo2" class="composition__photo composition__photo--p2">
-	        				<img src="img/3.jpg" alt="Photo3" class="composition__photo composition__photo--p3">
+	        				<img srcset="img/1.jpg 518w, img/1_mobile.jpg 258w" alt="Photo1" class="composition__photo composition__photo--p1" 
+	        				sizes="(max-width: 900px) 20vw, (max-width: 600px) 20vw, 300px"
+	        				src="img/1.jpg">
+	        				
+	        				<img srcset="img/2.jpg 540w, img/2_mobile.jpg 270w" alt="Photo2" class="composition__photo composition__photo--p2"
+	        				sizes="(max-width: 900px) 20vw, (max-width: 600px) 20vw, 300px"
+	        				src="img/2.jpg">
+	        				
+	        				<img srcset="img/3.jpg 900w, img/3_mobile.jpg 450w" alt="Photo3" class="composition__photo composition__photo--p3"
+	        				sizes="(max-width: 900px) 20vw, (max-width: 600px) 20vw, 300px"
+	        				src="img/3.jpg">
 	        			</div>
 	        		</div>
 	        	</div>
