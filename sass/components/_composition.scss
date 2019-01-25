@@ -7,19 +7,39 @@
 		transition: .1s linear all;
 		z-index: 0;
 
+		@include responsive($tablet-portrait){
+			position: relative;
+			float: left;
+			width: 33%
+		}
+
 		&--p1 {
 			left: 0;
 			top: -2rem;
+
+			@include responsive($tablet-portrait){
+				top: 0;
+				left: 10%;
+			}
 		}
 
 		&--p2 {
 			right: 0;
 			top: 0rem;
+
+			@include responsive($tablet-portrait){
+				top: 0;
+			}
 		}
 
 		&--p3 {
 			left: 20%;
 			top: 4rem;
+
+			@include responsive($tablet-portrait){
+				top: 0;
+				left: -10%;
+			}
 		}
 
 		&:hover {

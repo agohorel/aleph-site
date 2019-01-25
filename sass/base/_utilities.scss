@@ -1,9 +1,53 @@
-.u-center-text { text-align: center; }
+.u-center-text { text-align: center !important; }
 
-.u-margin-bottom-large { margin-bottom: 14rem; }
-.u-margin-bottom-medium { margin-bottom: 4rem; }
-.u-margin-bottom-small { margin-bottom: .5rem; }
+.u-margin-bottom-large { 
+	margin-bottom: 14rem !important; 
+	
+	@include responsive($tablet-portrait){
+		margin-bottom: 7rem !important;
+	}
+
+	@include responsive($phone){
+		margin-bottom: 4rem !important;
+	}
+}
+
+.u-margin-bottom-medium-large { 
+	margin-bottom: 10rem !important; 
+	
+	@include responsive($tablet-portrait){
+		margin-bottom: 5rem !important;
+	}
+
+	@include responsive($phone){
+		margin-bottom: 2.5rem !important;
+	}
+}
+
+.u-margin-bottom-medium { 
+	margin-bottom: 4rem !important; 
+
+	@include responsive($tablet-portrait){
+		margin-bottom: 2rem !important;
+	}
+
+	@include responsive($phone){
+		margin-bottom: 1.75rem !important;
+	}
+}
+
+.u-margin-bottom-small { 
+	margin-bottom: .5rem !important;
+
+	@include responsive($tablet-portrait){
+		margin-bottom: .25rem !important;
+	}
+
+	@include responsive($phone){
+		margin-bottom: .2rem !important;
+	}
+}
 
 .u-unskew {
-	transform: skewX(12deg);
+	transform: skewX(12deg) !important;
 }

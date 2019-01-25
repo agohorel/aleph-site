@@ -3,7 +3,6 @@ body {
 	font-weight: 300; 
 	line-height: 1.5;
 	color: $aleph-black;
-	padding: 2rem;
 }
 
 .heading-primary {
@@ -17,8 +16,15 @@ body {
 		font-size: $font-size-h1;
 		font-weight: 400; 
 		letter-spacing: 3.5rem;
-		margin-right: -3.5rem;
+		margin-right: -3.5rem; // offset to account for letter spacing
 		animation: fadeInMain .5s;
+	
+		@include responsive($phone){
+			letter-spacing: 1rem;
+			margin-right: -1rem;
+			font-size: 5rem;
+		}
+
 	}
 
 	&--sub {
@@ -29,7 +35,13 @@ body {
 		letter-spacing: .17rem;
 		animation: fadeIn .75s .75s;
 		animation-fill-mode: backwards;
-		text-align: left;
+		text-align: center;
+
+		@include responsive($phone){
+			letter-spacing: 0;
+			font-size: 1rem;
+		}
+
 	}
 }
 
@@ -40,6 +52,15 @@ body {
 	background-image: linear-gradient(to right, $aleph-green, $aleph-blue);
 	-webkit-background-clip: text;
 	color: transparent;
+
+	@include responsive($tablet-portrait){
+		font-size: 4rem;
+	}
+
+	@include responsive($phone){
+		font-size: 3.5rem;
+	}
+
 }
 
 .heading-tertiary {
@@ -62,4 +83,10 @@ body {
 	background-color: rgba($aleph-light-grey, .6);
 	border-radius: $border-radius;
 	transform: skewX(-12deg);
+}
+
+.about__body {
+	@include responsive($phone){
+		padding: 3rem 5rem;
+	}
 }

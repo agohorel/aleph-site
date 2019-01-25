@@ -1,5 +1,5 @@
 .demonstration {
-	width: 67%;
+	width: 50%;
 	height: 15rem;
 	margin: 10rem auto;
 	background-color: rgba(255, 255, 255, .6);
@@ -9,11 +9,39 @@
 	transition: 1s linear all;
 	opacity: 1;
 
+	&__heading {
+		transform: skewX(12deg);
+	}
+
+	&__subheading{
+		font-size: 2rem;
+	}
+
 	&__text {
 		transform: skewX(12deg);
 	}
 
 	&__text--description {
-		padding-top: 2rem;
+		padding-top: 1rem;
+	}
+
+	@include responsive($tablet-portrait){
+		width: 100%;
+		padding: 2rem 3rem 0rem 3rem;
+		height: 13rem;
+	}
+
+	@include responsive($phone){
+		padding: 1rem 2rem;
+		transform: skewX(0deg);
+		height: 20rem;
+
+		&__text {
+			transform: skewX(0deg);
+		}
+
+		&__text--description {
+			font-size: 1.5rem;
+		}
 	}
 }

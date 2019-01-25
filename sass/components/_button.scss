@@ -1,4 +1,5 @@
 .btn {
+	&,
 	&:link,
 	&:visited {
 		font-family: Roboto, sans-serif;
@@ -12,6 +13,14 @@
 		animation: fadeIn 1s ease-in 1s;
 		animation-fill-mode: backwards;
 		position: relative;
+
+		// for the <button> element
+		border: none;
+		cursor: pointer;
+
+		@include responsive($tablet-portrait){
+			padding: .75rem 1.25rem;
+		}
 	}
 
 	&:hover {
@@ -21,7 +30,9 @@
 		color: $aleph-light-grey;
 	}
 
-	&:active {
+	&:active,
+	&:focus {
+		outline: none;
 		transform: translateY(-1px);
 		@include shadow(.5rem, 1rem, .2);
 	}

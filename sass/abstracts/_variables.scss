@@ -4,6 +4,7 @@ $aleph-blue: #00b4f6;
 $aleph-grey: #2e3233;
 $aleph-light-grey: #d4e1e6;
 $aleph-black: #060b0d;
+$aleph-warn: #ed1b59;
 
 // generic colors
 $color-black: #000;
@@ -12,11 +13,18 @@ $color-white: #fff;
 // measurements
 $grid-width: 114rem;
 $grid-gutter-vertical: 8rem;
+$grid-gutter-vertical-small: 6rem;
 $grid-gutter-horizontal: 6rem;
 $border-radius: 2px;
 
 // font sizes
-$font-size-paragraph: 1rem;
-$font-size-h3: 1.4rem;
-$font-size-h2: 3rem;
-$font-size-h1: 5rem;
+$font-size-paragraph: 1.2rem;
+$font-size-h3: 1.5rem;
+$font-size-h2: 4rem;
+$font-size-h1: 6rem;
+
+// media query sizes
+$phone: 37.5em; // 600px
+$tablet-portrait: 56.25em; // 900px
+$tablet-landscape: 75em; // 1200px
+$large-desktop: 112.5em; // 1800+

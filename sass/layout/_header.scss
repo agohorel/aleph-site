@@ -1,5 +1,6 @@
 .header {
 	height: 95vh;
+	margin-bottom: 2.5vh;
 	background-image: linear-gradient(to bottom right, 
 									  rgba($color-black, 1),
 									  rgba($color-white, .5)), 
@@ -27,5 +28,25 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		text-align: center; 
+	}
+
+	@include responsive($tablet-portrait) {
+		height: 100vh;
+	}
+
+	@include responsive($phone) {
+		&__logo-box {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: absolute;
+			top: 10vh;
+			left: 0;
+		}
+
+		&__logo {
+			height: 50vw;
+		}
 	}
 }

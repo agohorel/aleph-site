@@ -1,0 +1,109 @@
+.form {
+	&__group:not(:last-child){
+		margin-bottom: 2rem;
+
+		@include responsive($tablet-portrait) {
+			margin-bottom: 1rem;
+		}
+
+		@include responsive($phone) {
+			margin-bottom: 0;
+		}
+	}
+
+	&__input{
+		font-size: $font-size-h3;
+		font-family: inherit;
+		color: inherit;
+		padding: 1.5rem 2 rem;
+		border-radius: $border-radius;
+		background-color: rgba($color-white, 1);
+		border: none;
+		border-bottom: 3px solid transparent; // account for border-bottom when focused
+		width: 67%;
+		display: block;
+		transition: .2s linear all;
+
+		@include responsive($tablet-portrait) {
+			width: 85%;
+		}
+
+		@include responsive($phone) {
+			width: 100%;
+		}
+
+		&:focus {
+			outline: none;
+			@include shadow(1rem, 2rem, .1);
+			border-bottom: 3px solid $aleph-green;
+		}
+
+		&:focus:invalid {
+			border-bottom: 3px solid $aleph-warn;
+		}
+
+		&::-webkit-input-placeholder {
+			color: #999;
+		}
+	}
+
+	&__label {
+		font-size: $font-size-h3;
+		font-weight: 700;
+		margin-top: .7rem;
+		transition: .5s linear all;
+		display: block;
+	}
+
+	&__input:placeholder-shown + &__label {
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-2rem);
+	}
+
+	&__radio-group {
+		width: 49%;
+		padding-left: 3rem;
+	}
+
+	&__radio-input {
+		display: none;
+	}
+
+	&__radio-label {
+		font-size: $font-size-paragraph;
+		cursor: pointer;
+		position: relative;
+		padding-left: 3rem;
+	}
+
+	&__radio-button {
+		height: 2.5rem;
+		width: 2.5rem;
+		border: .3rem solid $aleph-green;
+		border-radius: 1px;
+		display: inline-block;
+		position: absolute;
+		left: 0;
+		top: -0.6rem;
+
+		&::after {
+			content: "";
+			display: block;
+			height: 1.25rem;
+			width: 1.25rem;
+			border-radius: .5px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-color: $aleph-grey;
+			opacity: 0;
+			transition: .1s linear opacity;
+		}
+	}
+
+	&__radio-input:checked ~ &__radio-label &__radio-button::after {
+		opacity: 1;
+	}
+}
