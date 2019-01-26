@@ -45,7 +45,8 @@ let img;
 let pastBuffer, padding, barWidth;
 
 function preload(){
-	song = loadSound("../audio/song.mp3") || loadSound("https://raw.githubusercontent.com/agohorel/aleph-site/master/audio/song.mp3"); // 129 bpm
+	// song = loadSound("../audio/song.mp3"); // 129 bpm
+	song = loadSound("https://raw.githubusercontent.com/agohorel/aleph-site/master/audio/song.mp3"); // 129 bpm
 }
 
 function setup(){
