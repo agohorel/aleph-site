@@ -163,6 +163,9 @@ body {
 .u-unskew {
   transform: skewX(12deg) !important; }
 
+.u-flexbox-spacer {
+  width: 100%; }
+
 .section-anchor {
   display: block;
   visibility: hidden;
@@ -243,6 +246,18 @@ body {
     @media (max-width: 56.25em) {
       .subscribe__form {
         width: 70%; } }
+
+.section-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 95vh;
+  padding: 15rem 0;
+  margin-bottom: 2.5vh;
+  background-image: linear-gradient(to right bottom, #2e3233, #464c4e); }
+  @media (max-width: 56.25em) {
+    .section-social {
+      height: 100vh; } }
 
 .btn, .btn:link, .btn:visited {
   font-family: Roboto, sans-serif;
@@ -601,6 +616,35 @@ body {
 
 .form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
   opacity: 1; }
+
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 20rem;
+  height: 20rem;
+  background-color: #2e3233; }
+  .social__icon {
+    padding: 2rem 0 2rem 0;
+    width: 100%;
+    height: auto; }
+    .social__icon--email {
+      transform: scale(1.8); }
+  .social__title {
+    padding-top: 1rem;
+    color: #94b4c1;
+    text-align: center; }
+  @media (max-width: 56.25em) {
+    .social {
+      width: 100%; } }
+  @media (max-width: 37.5em) {
+    .social {
+      width: 100%; }
+      .social__icon {
+        transform: scale(0.8); }
+        .social__icon--email {
+          transform: scale(1.3); } }
 
 .header {
   height: 95vh;

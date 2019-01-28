@@ -106,5 +106,18 @@
 			width: 70%;
 		}
 	}
+}
 
+.section-social {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 95vh;
+	padding: 15rem 0;
+	margin-bottom: 2.5vh;
+	background-image: linear-gradient(to right bottom, $aleph-grey, lighten($aleph-grey, 10%));
+
+	@include responsive($tablet-portrait){
+		height: 100vh;
+	}
 }
