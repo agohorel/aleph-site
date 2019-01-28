@@ -224,6 +224,7 @@ body {
       padding: 5rem 0; } }
 
 .section-subscribe {
+  display: none;
   height: 95vh;
   padding: 15rem 0;
   margin-bottom: 2.5vh;
