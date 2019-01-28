@@ -243,7 +243,7 @@
 				
 				<div class="col-1-of-3">
 					<div class="social">
-						<a href="">
+						<a href="https://discordapp.com/invite/c8fUQUb" target="_blank">
 							<img class="social__icon social__icon--discord" src="img/Discord-Logo-White.svg" alt="discord-logo">
 						</a>
 					</div>
@@ -252,7 +252,7 @@
 
 				<div class="col-1-of-3">
 					<div class="social">
-						<a href="#subscribe">
+						<a href="#email">
 							<img class="social__icon social__icon--email" src="img/basic_mail.svg" alt="email-icon">
 						</a>
 					</div>
@@ -261,7 +261,7 @@
 
 				<div class="col-1-of-3">
 					<div class="social">
-						<a href="">
+						<a href="https://github.com/agohorel/aleph" target="_blank">
 							<img class="social__icon social__icon--github" src="img/github.svg" alt="discord-logo">					
 						</a>
 					</div>
@@ -271,46 +271,34 @@
 		</section>
 	
 
-			<div id="subscribe" class="section-anchor"></div>
-			<section class="section-subscribe">
+			<div id="email" class="section-anchor"></div>
+			<section class="section-email">
 				<div class="row">
-					<div class="subscribe">
-						<div class="subscribe__form">
-							<form action="#" class="form">
+					<div class="email">
+						<div class="email__form">
+							<form method="POST" action="https://formspree.io/alex.oddlogic@gmail.com">
 								
 								<div class="u-margin-bottom-medium">
-									<h2 class="heading-secondary">keep in touch!</h2>
+									<h2 class="heading-secondary">contact</h2>
 								</div>
 
 								<div class="form__group">
-									<input id="name" type="text" class="form__input" placeholder="full name" autocomplete="off" required>
-									<label for="name" class="form__label">full name</label>
+									<input name="name" id="name" type="text" class="form__input" placeholder="your name" autocomplete="off" required>
+									<label for="name" class="form__label">your name</label>
 								</div>
 
 								<div class="form__group">
-									<input id="email" type="email" class="form__input" placeholder="email" autocomplete="off" required>
-									<label for="email" class="form__label">email</label>
+									<input name="email" id="emailAddress" type="email" class="form__input" placeholder="your email address" autocomplete="off" required>
+									<label for="emailAddress" class="form__label">your email</label>
 								</div>
 
 								<div class="form__group">
-									<div class="form__radio-emailFrequency u-margin-bottom-medium">
-										<input id="lessEmails" type="radio" name="emailFrequency" class="form__radio-input">
-										<label for="lessEmails" class="form__radio-label">
-											<span class="form__radio-button"></span>
-											major release notifications only
-										</label>
-									</div>
-									<div class="form__radio-emailFrequency u-margin-bottom-medium">
-										<input id="moreEmails" type="radio" name="emailFrequency" class="form__radio-input">
-										<label for="moreEmails" class="form__radio-label">
-											<span class="form__radio-button"></span>
-											regular development updates
-										</label>
-									</div>
+									<textarea name="message" id="emailBody" type="text" class="form__input" placeholder="your message" autocomplete="off" required></textarea>
+									<label for="emailBody" class="form__label">your message</label>
 								</div>
 
 								<div class="form__group">
-									<button class="btn btn--green">subscribe &rarr;</button>
+									<button type="submit" class="btn btn--green">send &rarr;</button>
 								</div>
 
 							</form>
