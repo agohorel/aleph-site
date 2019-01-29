@@ -50,8 +50,16 @@
 		&__icon {
 			transform: scale(.8);
 
+			&--discord {
+				transform: scale(.4);
+			}
+
 			&--email {
 				transform: scale(1.3);
+			}
+
+			&--github {
+				transform: scale(.3);
 			}
 		}
 	}
