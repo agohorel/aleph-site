@@ -12,8 +12,20 @@
 		width: 100%;
 		height: auto;
 
+		&:hover {
+			fill: red;
+		}
+
+		&--discord {
+			transform: scale(.5);
+		}
+
 		&--email {
 			transform: scale(1.8);
+		}
+
+		&--github {
+			transform: scale(.5);
 		}
 	}
 
@@ -38,5 +50,19 @@
 			}
 		}
 	}
+}
 
+a svg:hover #github,  
+a svg:hover .st0 { // discord   
+	fill: $aleph-blue;
+}
+
+a svg:hover .email-svg {
+	stroke: $aleph-blue;
+}
+
+a svg #github,
+a svg .st0,
+a svg .email-svg {
+	transition: .2s linear all;
 }

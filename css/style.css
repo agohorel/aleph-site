@@ -630,8 +630,14 @@ body {
     padding: 2rem 0 2rem 0;
     width: 100%;
     height: auto; }
+    .social__icon:hover {
+      fill: red; }
+    .social__icon--discord {
+      transform: scale(0.5); }
     .social__icon--email {
       transform: scale(1.8); }
+    .social__icon--github {
+      transform: scale(0.5); }
   .social__title {
     padding-top: 1rem;
     color: #94b4c1;
@@ -646,6 +652,18 @@ body {
         transform: scale(0.8); }
         .social__icon--email {
           transform: scale(1.3); } }
+
+a svg:hover #github,
+a svg:hover .st0 {
+  fill: #00b4f6; }
+
+a svg:hover .email-svg {
+  stroke: #00b4f6; }
+
+a svg #github,
+a svg .st0,
+a svg .email-svg {
+  transition: .2s linear all; }
 
 .header {
   height: 95vh;
