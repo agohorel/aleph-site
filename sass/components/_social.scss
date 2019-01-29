@@ -33,6 +33,11 @@
 		padding-top: 1rem;
 		color: darken($aleph-light-grey, 20%);
 		text-align: center;
+		transition: .1s linear color;
+
+		&:hover {
+			color: $color-white;
+		}
 	}
 
 	@include responsive($tablet-portrait){
@@ -64,5 +69,5 @@ a svg:hover .email-svg {
 a svg #github,
 a svg .st0,
 a svg .email-svg {
-	transition: .2s linear all;
+	transition: .1s linear all;
 }

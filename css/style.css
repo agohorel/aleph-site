@@ -641,7 +641,10 @@ body {
   .social__title {
     padding-top: 1rem;
     color: #94b4c1;
-    text-align: center; }
+    text-align: center;
+    transition: .1s linear color; }
+    .social__title:hover {
+      color: #fff; }
   @media (max-width: 56.25em) {
     .social {
       width: 100%; } }
@@ -663,7 +666,7 @@ a svg:hover .email-svg {
 a svg #github,
 a svg .st0,
 a svg .email-svg {
-  transition: .2s linear all; }
+  transition: .1s linear all; }
 
 .header {
   height: 95vh;
@@ -741,7 +744,6 @@ a svg .email-svg {
     width: calc(3 * ((100% - 3 * 6rem) / 4) + 2 * 6rem); }
 
 .footer {
-  margin-top: 2rem;
   background-color: #2e3233;
   padding: 2rem 0;
   font-size: 1.5rem; }
