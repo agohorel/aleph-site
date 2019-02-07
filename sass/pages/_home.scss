@@ -21,7 +21,8 @@
 
 	@include responsive($tablet-portrait){
 		padding: 10rem 0;
-		height: 100vh;
+		height: auto;
+		min-height: 100vh;
 	}
 }
 
@@ -39,7 +40,8 @@
 	width: 100%;
 
 	@include responsive($tablet-portrait){
-		height: 100vh;
+		height: auto;
+		min-height: 100vh;
 	}
 }
 
@@ -50,20 +52,22 @@
 	position: relative;
 	
 	@include responsive($tablet-landscape){
-		height: 100vh;
+		height: auto;
 		padding: 10rem 0;
 	}
 }
 
 .section-downloads {
-	height: 95vh;
+	min-height: 95vh;
+	height: auto;
 	background-color: $aleph-light-grey;
 	padding: 20rem 0;
 	margin-bottom: 2.5vh;
 
 	@include responsive($tablet-portrait){
 		padding: 10rem 0;
-		height: 100vh;
+		height: auto;
+		min-height: 100vh;
 	}
 
 	@include responsive($phone){
@@ -79,7 +83,8 @@
 	background-image: linear-gradient(to right bottom, $aleph-blue, $aleph-green);
 
 	@include responsive($tablet-portrait){
-		height: 100vh;
+		height: auto;
+		min-height: 100vh;
 	}
 }
 
@@ -110,15 +115,17 @@
 }
 
 .section-social {
+	min-height: 95vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 95vh;
 	padding: 15rem 0;
 	margin-bottom: 2.5vh;
 	background-image: linear-gradient(to right bottom, $aleph-grey, lighten($aleph-grey, 10%));
 
 	@include responsive($tablet-portrait){
-		height: 100vh;
+		height: auto;
+		min-height: 100vh;
+		padding: 3rem 0;
 	}
 }
