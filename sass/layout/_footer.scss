@@ -23,8 +23,12 @@
 	&__item {
 		display: inline-block;
 
+		&:first-child {
+			margin: 0 2rem 0 2rem;
+		}
+
 		&:not(:last-child) {
-			margin-right: 2rem;
+			padding-right: 2rem;
 		}
 	}
 
