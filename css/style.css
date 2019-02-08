@@ -83,8 +83,7 @@ body {
     text-align: center; }
     @media (max-width: 37.5em) {
       .heading-primary--sub {
-        letter-spacing: 0;
-        font-size: 1rem; } }
+        font-size: 1.4rem; } }
 
 .heading-secondary {
   font-size: 4rem;
@@ -103,12 +102,21 @@ body {
 .heading-tertiary {
   font-size: 1.5rem;
   font-weight: 700; }
+  @media (max-width: 56.25em) {
+    .heading-tertiary {
+      font-size: 2rem; } }
 
 .paragraph {
   font-size: 1.2rem;
   font-weight: 400; }
   .paragraph:not(:last-child) {
     margin-bottom: 2rem; }
+  @media (max-width: 56.25em) {
+    .paragraph {
+      font-size: 1.5rem; } }
+  @media (max-width: 37.5em) {
+    .paragraph {
+      font-size: 1.5rem; } }
 
 .text-frame {
   display: inline-block;

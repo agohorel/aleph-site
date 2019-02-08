@@ -38,8 +38,7 @@ body {
 		text-align: center;
 
 		@include responsive($phone){
-			letter-spacing: 0;
-			font-size: 1rem;
+			font-size: 1.4rem;
 		}
 
 	}
@@ -66,6 +65,10 @@ body {
 .heading-tertiary {
 	font-size: $font-size-h3;
 	font-weight: 700;
+
+	@include responsive($tablet-portrait){
+		font-size: 2rem;
+	}
 }
 
 .paragraph {
@@ -74,6 +77,14 @@ body {
 
 	&:not(:last-child){
 		margin-bottom: 2rem;
+	}
+
+	@include responsive($tablet-portrait){
+		font-size: 1.5rem;
+	}
+
+	@include responsive($phone){
+		font-size: 1.5rem;
 	}
 }
 
