@@ -15,23 +15,21 @@
 	animation: fadeInHeader 1s ease-in-out;
 
 	&__logo-box {
-		position: absolute;
-		top: 2rem;
-		left: 1.6rem;
+		margin-top: -20vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		animation: fadeIn 1s ease-in 1s;
 		animation-fill-mode: backwards;
 	}
 
 	&__logo {
-		height: 6rem;
+		height: 25vh;
 	}
 
 	&__text-box {
 		text-align: center; 
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
 	}
 
 	@include responsive($tablet-portrait) {
@@ -40,13 +38,11 @@
 
 	@include responsive($phone) {
 		&__logo-box {
-			width: 100%;
+			margin-top: -20vh;
 			display: flex;
+			flex-direction: column;
 			justify-content: center;
 			align-items: center;
-			position: absolute;
-			top: 10vh;
-			left: 0;
 		}
 
 		&__logo {

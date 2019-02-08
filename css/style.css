@@ -687,31 +687,27 @@ a svg .email-svg {
   position: relative;
   animation: fadeInHeader 1s ease-in-out; }
   .header__logo-box {
-    position: absolute;
-    top: 2rem;
-    left: 1.6rem;
+    margin-top: -20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     animation: fadeIn 1s ease-in 1s;
     animation-fill-mode: backwards; }
   .header__logo {
-    height: 6rem; }
+    height: 25vh; }
   .header__text-box {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; }
+    text-align: center; }
   @media (max-width: 56.25em) {
     .header {
       height: 100vh; } }
   @media (max-width: 37.5em) {
     .header__logo-box {
-      width: 100%;
+      margin-top: -20vh;
       display: flex;
+      flex-direction: column;
       justify-content: center;
-      align-items: center;
-      position: absolute;
-      top: 10vh;
-      left: 0; }
+      align-items: center; }
     .header__logo {
       height: 25vh;
       max-height: 15rem; } }
