@@ -51,7 +51,7 @@ function preload(){
 
 function setup(){
 	canvasDiv = document.getElementById("p5-container");
-	pixelDensity(1); // force 1:1 pixel density on high DPI screens (mobile)
+	pixelDensity(1.5); // force 1:1 pixel density on high DPI screens (mobile)
 	w = canvasDiv.offsetWidth;
 	h = canvasDiv.offsetHeight;
 	cnv = createCanvas(w, h);
@@ -59,14 +59,14 @@ function setup(){
 	background(0);
 
 	amplitude = new p5.Amplitude();
-	fft = new p5.FFT();
+	fft = new p5.FFT(0.8, 512);
 
 	// put modes to cycle through here (this determines the order)
 	modes = [wave, spectrumBars, mandala, spec];
 	// modes = [spectrumBars];
 
 	analyzeAudio(); // run initially so spectrum.length, etc. is not undefined
-	img = createImage(spectrum.length, 1);
+	img = createImage(spectrum.length, 1); // create 1 pixel tall "buffer" to draw pixels in
 
 	pastBuffer = new Array(40);
 	padding = 1;
@@ -326,7 +326,7 @@ function spectrumBars(){
 	// only copy pixels every other frame
 	if (frameCount % 2 === 0){
 		// only copy first row of pixels (all subsequent rows are the same anyway)
-		copy(0, 0, width, 1, -20, 0, width + 40, height);
+		// copy(0, 0, width, 1, -20, 0, width + 40, height);
 	}
 	
 	img.loadPixels();
@@ -335,23 +335,27 @@ function spectrumBars(){
 		let waveformScaled = map(waveform[i], -1, 1, 0, 255);
 		let gradient = map(i, 0, spectrum.length, 0, 50);
 		let waveformSpectrumAvg = spectrum[i] + (waveformScaled * 2) / 3;
-		let bassScale = map(bass, 0, 255, 0, 1.5);
-		let midScale = map(mid, 0, 255, 0, .25);
-		let highScale = map(high, 0, 255, 0, 50);
+		// let bassScale = map(bass, 0, 255, 0, 1.5);
+		// let midScale = map(mid, 0, 255, 0, .25);
+		// let highScale = map(high, 0, 255, 0, 50);
 
-		img.pixels[i] = red(waveformSpectrumAvg * bassScale + gradient - 50);
-		img.pixels[i+1] = green(waveformSpectrumAvg * midScale);
-		img.pixels[i+2] = blue(waveformSpectrumAvg * highScale);
+		// img.pixels[i] = red(waveformSpectrumAvg * bassScale + gradient - 50);
+		// img.pixels[i+1] = green(waveformSpectrumAvg * midScale);
+		// img.pixels[i+2] = blue(waveformSpectrumAvg * highScale);
+		// img.pixels[i+3] = alpha(waveformSpectrumAvg);
+		img.pixels[i] = red(waveformSpectrumAvg + gradient);
+		img.pixels[i+1] = green(waveformSpectrumAvg + gradient);
+		img.pixels[i+2] = blue(waveformSpectrumAvg + gradient);
 		img.pixels[i+3] = alpha(waveformSpectrumAvg);
 	}
 
 	img.updatePixels();
-	image(img, width/6, 0, width, height);
+	image(img, width/2, 0, width*2, height*2);
 
 	push();
-	translate(width - width/6, height);
+	translate(width - width/2, height);
 	rotate(radians(180));
-	image(img, 0, 0, width, height);
+	image(img, 0, 0, width*2, height*2);
 	pop();
 }
 
