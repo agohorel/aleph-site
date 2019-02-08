@@ -1,4 +1,8 @@
 .header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 	height: 95vh;
 	margin-bottom: 2.5vh;
 	background-image: linear-gradient(to bottom right, 
@@ -23,11 +27,11 @@
 	}
 
 	&__text-box {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
 		text-align: center; 
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
 	}
 
 	@include responsive($tablet-portrait) {
@@ -46,7 +50,8 @@
 		}
 
 		&__logo {
-			height: 50vw;
+			height: 25vh;
+			max-height: 15rem;
 		}
 	}
 }

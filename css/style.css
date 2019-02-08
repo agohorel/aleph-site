@@ -675,6 +675,10 @@ a svg .email-svg {
   transition: .1s linear all; }
 
 .header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   height: 95vh;
   margin-bottom: 2.5vh;
   background-image: linear-gradient(to bottom right, black, rgba(255, 255, 255, 0.5)), url(../img/warp.jpg);
@@ -691,11 +695,11 @@ a svg .email-svg {
   .header__logo {
     height: 6rem; }
   .header__text-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center; }
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
   @media (max-width: 56.25em) {
     .header {
       height: 100vh; } }
@@ -709,7 +713,8 @@ a svg .email-svg {
       top: 10vh;
       left: 0; }
     .header__logo {
-      height: 50vw; } }
+      height: 25vh;
+      max-height: 15rem; } }
 
 .row {
   max-width: 114rem;
