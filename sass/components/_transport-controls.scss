@@ -18,4 +18,10 @@
 		color: $color-white;
 		padding-bottom: 1rem;
 	}
+
+	@include responsive($tablet-portrait){
+		&__icon {
+			font-size: 6rem;
+		}
+	}
 }

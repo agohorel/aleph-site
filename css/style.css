@@ -535,6 +535,9 @@ body {
   .transport-controls__label {
     color: #fff;
     padding-bottom: 1rem; }
+  @media (max-width: 56.25em) {
+    .transport-controls__icon {
+      font-size: 6rem; } }
 
 .form__group:not(:last-child) {
   margin-bottom: 2rem; }
