@@ -19,7 +19,8 @@
 		cursor: pointer;
 
 		@include responsive($tablet-portrait){
-			padding: .75rem 1.25rem;
+			padding: 1rem 1.75rem;
+			font-size: 1.75rem;
 		}
 	}
 
