@@ -7,6 +7,10 @@
 	height: 20rem;
 	background-color: $aleph-grey;
 
+	& + a {
+		text-decoration: none;
+	}
+	
 	& a {
 		display: flex;
 		flex-wrap: wrap;

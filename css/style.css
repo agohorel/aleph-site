@@ -631,6 +631,8 @@ body {
   width: 20rem;
   height: 20rem;
   background-color: #2e3233; }
+  .social + a {
+    text-decoration: none; }
   .social a {
     display: flex;
     flex-wrap: wrap;
