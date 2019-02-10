@@ -217,8 +217,7 @@ body {
   position: relative; }
   @media (max-width: 75em) {
     .section-demonstration {
-      height: auto;
-      min-height: 100vh;
+      height: 100vh;
       padding: 10rem 0; } }
 
 .section-downloads {
