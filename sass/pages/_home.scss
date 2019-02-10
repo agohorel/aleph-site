@@ -59,20 +59,15 @@
 }
 
 .section-downloads {
-	min-height: 95vh;
+	max-height: 95vh;
 	height: auto;
 	background-color: $aleph-light-grey;
-	padding: 20rem 0;
 	margin-bottom: 2.5vh;
+	text-align: center;
 
-	@include responsive($tablet-portrait){
-		padding: 10rem 0;
-		height: auto;
-		min-height: 100vh;
-	}
-
-	@include responsive($phone){
-		padding: 5rem 0;
+	&__title {
+		position: relative;
+		top: 10vh;
 	}
 }
 

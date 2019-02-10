@@ -222,19 +222,14 @@ body {
       padding: 10rem 0; } }
 
 .section-downloads {
-  min-height: 95vh;
+  max-height: 95vh;
   height: auto;
   background-color: #d4e1e6;
-  padding: 20rem 0;
-  margin-bottom: 2.5vh; }
-  @media (max-width: 56.25em) {
-    .section-downloads {
-      padding: 10rem 0;
-      height: auto;
-      min-height: 100vh; } }
-  @media (max-width: 37.5em) {
-    .section-downloads {
-      padding: 5rem 0; } }
+  margin-bottom: 2.5vh;
+  text-align: center; }
+  .section-downloads__title {
+    position: relative;
+    top: 10vh; }
 
 .section-email {
   display: none;
@@ -398,13 +393,23 @@ body {
         line-height: 1.25; } }
 
 .card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   perspective: 150rem;
   position: relative;
-  height: 19rem;
-  max-width: 25rem;
-  margin: 0 auto; }
+  height: 22vh;
+  width: 25vw;
+  max-width: 25rem; }
+  .card__container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100vh; }
   .card__side {
-    height: 19rem;
+    height: inherit;
     transition: all .5s ease;
     position: absolute;
     top: 0;
@@ -453,32 +458,15 @@ body {
     transform: translate(-50%, -50%); }
   .card__download-box {
     text-align: center; }
+  @media (max-width: 75em) {
+    .card {
+      height: 18.5rem; } }
   @media (max-width: 56.25em) {
     .card {
-      height: auto; }
-      .card__side {
-        height: auto;
-        transition: all .5s ease;
-        position: relative;
-        border-radius: 2px; }
-        .card__side--back {
-          transform: rotateY(0deg); }
-      .card:hover .card__side--front {
-        transform: rotateY(0deg); }
-      .card__heading {
-        font-size: 1.5rem;
-        font-weight: 400;
-        text-align: center;
-        margin-bottom: 3rem; }
-      .card__icon {
-        font-size: 6rem; }
-      .card__download-container {
-        background-color: #b4cbd3;
-        width: inherit;
-        height: inherit;
-        padding: 2rem 0; }
-      .card__download-box {
-        text-align: center; } }
+      height: 19rem; } }
+  @media (max-width: 37.5em) {
+    .card {
+      height: 18rem; } }
 
 .demonstration {
   width: 50%;

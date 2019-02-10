@@ -1,12 +1,24 @@
 .card {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 	perspective: 150rem;
 	position: relative;
-	height: 19rem;
+	height: 22vh;
+	width: 25vw;
 	max-width: 25rem;
-	margin: 0 auto;
+
+	&__container {
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		flex-wrap: wrap;
+		height: 100vh;
+	}
 
 	&__side {
-		height: 19rem;
+		height: inherit;
 		transition: all .5s ease;
 		position: absolute;
 		top: 0;
@@ -87,44 +99,15 @@
 		text-align: center;
 	}
 
+	@include responsive($tablet-landscape){
+		height: 18.5rem;
+	}
+
 	@include responsive($tablet-portrait){
-		height: auto;
+		height: 19rem;
+	}
 
-		&__side {
-			height: auto;
-			transition: all .5s ease;
-			position: relative;
-			border-radius: $border-radius;
-
-			&--back {
-				transform: rotateY(0deg);
-			}
-		}
-
-		&:hover &__side--front {
-			transform: rotateY(0deg);
-		}
-
-		&__heading {
-			font-size: $font-size-h3;
-			font-weight: 400;
-			text-align: center;
-			margin-bottom: 3rem;
-		}
-
-		&__icon {
-			font-size: 6rem;
-		}
-
-		&__download-container {
-			background-color: darken($aleph-light-grey, 10%);
-			width: inherit;
-			height: inherit;
-			padding: 2rem 0;
-		}
-
-		&__download-box {
-			text-align: center;
-		}
+	@include responsive($phone){
+		height: 18rem;
 	}
 }
