@@ -5,6 +5,11 @@ body {
 	color: $aleph-black;
 }
 
+::selection {
+	background: $aleph-green;
+	color: $color-white;
+}
+
 .heading-primary {
 	backface-visibility: hidden;
 	margin: 2rem;

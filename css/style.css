@@ -55,6 +55,10 @@ body {
   line-height: 1.5;
   color: #060b0d; }
 
+::selection {
+  background: #12e4a6;
+  color: #fff; }
+
 .heading-primary {
   backface-visibility: hidden;
   margin: 2rem; }
