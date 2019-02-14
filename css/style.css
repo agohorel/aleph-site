@@ -686,7 +686,7 @@ a svg .email-svg {
   flex-direction: column;
   height: 95vh;
   margin-bottom: 2.5vh;
-  background-image: linear-gradient(to bottom right, black, rgba(255, 255, 255, 0.5)), url(../img/warp.jpg);
+  background-image: linear-gradient(to bottom right, black, rgba(255, 255, 255, 0.5)), url(../img/warp_transparent.png);
   background-size: cover;
   background-position: top;
   position: relative;
@@ -716,6 +716,9 @@ a svg .email-svg {
     .header__logo {
       height: 25vh;
       max-height: 15rem; } }
+  @media (min-resolution: 192dpi) {
+    .header {
+      background-image: linear-gradient(to bottom right, black, rgba(255, 255, 255, 0.5)), url(../img/warp_transparent_hi_dpi.png); } }
 
 .row {
   max-width: 114rem;
