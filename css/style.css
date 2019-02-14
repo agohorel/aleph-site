@@ -716,7 +716,7 @@ a svg .email-svg {
     .header__logo {
       height: 25vh;
       max-height: 15rem; } }
-  @media (min-resolution: 192dpi) {
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
     .header {
       background-image: linear-gradient(to bottom right, black, rgba(255, 255, 255, 0.5)), url(../img/warp_transparent_hi_dpi.png); } }
 

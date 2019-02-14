@@ -51,7 +51,8 @@
 		}
 	}
 
-	@media (min-resolution: 192dpi){
+	@media (min-resolution: 192dpi) and (min-width: 37.5em),
+		   							    (min-width: 125em) {
 		background-image: linear-gradient(to bottom right, 
 						  rgba($color-black, 1),
 						  rgba($color-white, .5)), 
