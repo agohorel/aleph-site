@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+    "watch_sass": "node-sass sass/main.scss css/style.css -w",
+    "compile_sass": "node-sass sass/main.scss css/style.compiled.css",
+    "concat_css": "concat -o css/style.concat.css css/font-os.css css/icon-font.css css/music-icon-font.css css/style.compiled.css",
+    "prefix_css": "postcss --use autoprefixer -b \"last 10 versions\" css/style.concat.css -o css/style.prefix.css",
+    "compress_css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
+    "build_css": "npm run compile_sass && npm run concat_css && npm run prefix_css && npm run compress_css"
   },
   "repository": {
     "type": "git",
@@ -17,6 +22,9 @@
   },
   "homepage": "https://github.com/agohorel/css#readme",
   "devDependencies": {
-    "node-sass": "^4.11.0"
+    "autoprefixer": "^9.4.7",
+    "concat": "^1.0.3",
+    "node-sass": "^4.11.0",
+    "postcss-cli": "^6.1.1"
   }
 }
