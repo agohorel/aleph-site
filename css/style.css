@@ -8,23 +8,23 @@
 html {
   font-size: 62.5%;
   scroll-behavior: smooth; }
-  @media (max-width: 75em) {
+  @media only screen and (max-width: 75em) {
     html {
       font-size: 56.25%; } }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     html {
       font-size: 50%; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     html {
       font-size: 43.75%; } }
-  @media (min-width: 112.5em) {
+  @media only screen and (min-width: 112.5em) {
     html {
       font-size: 75%; } }
 
 body {
   box-sizing: border-box;
   padding: 2.5vh; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     body {
       padding: 0; } }
 
@@ -71,7 +71,7 @@ body {
     letter-spacing: 3.5rem;
     margin-right: -3.5rem;
     animation: fadeInMain .5s; }
-    @media (max-width: 37.5em) {
+    @media only screen and (max-width: 37.5em) {
       .heading-primary--main {
         letter-spacing: 1rem;
         margin-right: -1rem;
@@ -85,7 +85,7 @@ body {
     animation: fadeIn .75s .75s;
     animation-fill-mode: backwards;
     text-align: center; }
-    @media (max-width: 37.5em) {
+    @media only screen and (max-width: 37.5em) {
       .heading-primary--sub {
         font-size: 1.4rem; } }
 
@@ -96,17 +96,17 @@ body {
   background-image: linear-gradient(to right, #12e4a6, #00b4f6);
   -webkit-background-clip: text;
   color: transparent; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .heading-secondary {
       font-size: 4rem; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .heading-secondary {
       font-size: 3.5rem; } }
 
 .heading-tertiary {
   font-size: 1.5rem;
   font-weight: 700; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .heading-tertiary {
       font-size: 2rem; } }
 
@@ -115,10 +115,10 @@ body {
   font-weight: 400; }
   .paragraph:not(:last-child) {
     margin-bottom: 2rem; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .paragraph {
       font-size: 1.5rem; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .paragraph {
       font-size: 1.5rem; } }
 
@@ -129,7 +129,7 @@ body {
   border-radius: 2px;
   transform: skewX(-12deg); }
 
-@media (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) {
   .about__body {
     padding: 3rem 5rem; } }
 
@@ -138,37 +138,37 @@ body {
 
 .u-margin-bottom-large {
   margin-bottom: 14rem !important; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .u-margin-bottom-large {
       margin-bottom: 7rem !important; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .u-margin-bottom-large {
       margin-bottom: 4rem !important; } }
 
 .u-margin-bottom-medium-large {
   margin-bottom: 10rem !important; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .u-margin-bottom-medium-large {
       margin-bottom: 5rem !important; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .u-margin-bottom-medium-large {
       margin-bottom: 2.5rem !important; } }
 
 .u-margin-bottom-medium {
   margin-bottom: 4rem !important; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .u-margin-bottom-medium {
       margin-bottom: 2rem !important; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .u-margin-bottom-medium {
       margin-bottom: 1.75rem !important; } }
 
 .u-margin-bottom-small {
   margin-bottom: .5rem !important; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .u-margin-bottom-small {
       margin-bottom: .25rem !important; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .u-margin-bottom-small {
       margin-bottom: .2rem !important; } }
 
@@ -183,7 +183,7 @@ body {
   visibility: hidden;
   height: 2.5vh;
   margin-top: -2.5vh; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .section-anchor {
       height: 0;
       margin-top: 0; } }
@@ -194,7 +194,7 @@ body {
   padding: 10rem 0;
   margin-bottom: 2.5vh;
   padding-bottom: 21rem; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .section-about {
       padding: 10rem 0;
       height: auto;
@@ -209,7 +209,7 @@ body {
   background-image: linear-gradient(to bottom right, black, rgba(255, 255, 255, 0.8)), url(../img/bent.jpg);
   background-size: cover;
   width: 100%; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .section-features {
       height: auto;
       min-height: 100vh; } }
@@ -219,7 +219,7 @@ body {
   padding: 15rem 0;
   margin-bottom: 2.5vh;
   position: relative; }
-  @media (max-width: 75em) {
+  @media only screen and (max-width: 75em) {
     .section-demonstration {
       height: 100vh;
       padding: 10rem 0; } }
@@ -240,7 +240,7 @@ body {
   padding: 15rem 0;
   margin-bottom: 2.5vh;
   background-image: linear-gradient(to right bottom, #00b4f6, #12e4a6); }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .section-email {
       height: auto;
       min-height: 100vh; } }
@@ -250,13 +250,13 @@ body {
   background-size: cover;
   border-radius: 2px;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2); }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .email {
       background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 60%, rgba(255, 255, 255, 0) 70%), url(../img/circle3.jpg); } }
   .email__form {
     width: 50%;
     padding: 6rem; }
-    @media (max-width: 56.25em) {
+    @media only screen and (max-width: 56.25em) {
       .email__form {
         width: 70%; } }
 
@@ -268,7 +268,7 @@ body {
   padding: 15rem 0;
   margin-bottom: 2.5vh;
   background-image: linear-gradient(to right bottom, #2e3233, #464c4e); }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .section-social {
       height: auto;
       min-height: 100vh;
@@ -288,7 +288,7 @@ body {
   position: relative;
   border: none;
   cursor: pointer; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .btn, .btn:link, .btn:visited {
       padding: 1rem 1.75rem;
       font-size: 1.75rem; } }
@@ -336,7 +336,7 @@ body {
     position: absolute;
     transition: .1s linear all;
     z-index: 0; }
-    @media (max-width: 56.25em) {
+    @media only screen and (max-width: 56.25em) {
       .composition__photo {
         position: relative;
         float: left;
@@ -344,20 +344,20 @@ body {
     .composition__photo--p1 {
       left: 0;
       top: -2rem; }
-      @media (max-width: 56.25em) {
+      @media only screen and (max-width: 56.25em) {
         .composition__photo--p1 {
           top: 0;
           left: 10%; } }
     .composition__photo--p2 {
       right: 0;
       top: 0rem; }
-      @media (max-width: 56.25em) {
+      @media only screen and (max-width: 56.25em) {
         .composition__photo--p2 {
           top: 0; } }
     .composition__photo--p3 {
       left: 20%;
       top: 4rem; }
-      @media (max-width: 56.25em) {
+      @media only screen and (max-width: 56.25em) {
         .composition__photo--p3 {
           top: 0;
           left: -10%; } }
@@ -386,7 +386,7 @@ body {
     transform: translateY(-0.5rem); }
   .feature-box__text {
     font-size: 1.2rem; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .feature-box {
       min-height: 5rem;
       padding: 1rem;
@@ -462,13 +462,13 @@ body {
     transform: translate(-50%, -50%); }
   .card__download-box {
     text-align: center; }
-  @media (max-width: 75em) {
+  @media only screen and (max-width: 75em) {
     .card {
       height: 18.5rem; } }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .card {
       height: 19rem; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .card {
       height: 18rem; } }
 
@@ -490,12 +490,12 @@ body {
     transform: skewX(12deg); }
   .demonstration__text--description {
     padding-top: 1rem; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .demonstration {
       width: 100%;
       padding: 2rem 3rem 0rem 3rem;
       height: 13rem; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .demonstration {
       padding: 1rem 2rem;
       transform: skewX(0deg);
@@ -538,16 +538,16 @@ body {
   .transport-controls__label {
     color: #fff;
     padding-bottom: 1rem; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .transport-controls__icon {
       font-size: 6rem; } }
 
 .form__group:not(:last-child) {
   margin-bottom: 2rem; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .form__group:not(:last-child) {
       margin-bottom: 1rem; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .form__group:not(:last-child) {
       margin-bottom: 0; } }
 
@@ -563,10 +563,10 @@ body {
   width: 67%;
   display: block;
   transition: .2s linear all; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .form__input {
       width: 85%; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .form__input {
       width: 100%; } }
   .form__input:focus {
@@ -658,11 +658,11 @@ body {
     transition: .1s linear color; }
     .social__title:hover {
       color: #fff; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .social {
       width: 100%;
       height: 15vh; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .social {
       width: 100%;
       height: 15vh; } }
@@ -703,10 +703,10 @@ a svg .email-svg {
     height: 25vh; }
   .header__text-box {
     text-align: center; }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .header {
       height: 100vh; } }
-  @media (max-width: 37.5em) {
+  @media only screen and (max-width: 37.5em) {
     .header__logo-box {
       margin-top: -20vh;
       display: flex;
@@ -725,10 +725,10 @@ a svg .email-svg {
   margin: 0 auto; }
   .row:not(:last-child) {
     margin-bottom: 8rem; }
-    @media (max-width: 56.25em) {
+    @media only screen and (max-width: 56.25em) {
       .row:not(:last-child) {
         margin-bottom: 6rem; } }
-  @media (max-width: 56.25em) {
+  @media only screen and (max-width: 56.25em) {
     .row {
       max-width: 50rem; } }
   .row::after {
@@ -739,7 +739,7 @@ a svg .email-svg {
     float: left; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 6rem; }
-    @media (max-width: 56.25em) {
+    @media only screen and (max-width: 56.25em) {
       .row [class^="col-"] {
         width: 100% !important; }
         .row [class^="col-"]:not(:last-child) {
