@@ -29,7 +29,7 @@ html {
 
 body {
 	box-sizing: border-box;
-	padding: 2.5vh;
+	padding: 0 2.5vh 0 2.5vh !important;
 
 	@include responsive($tablet-portrait) {
 		padding: 0;

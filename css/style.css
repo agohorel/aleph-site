@@ -23,7 +23,7 @@ html {
 
 body {
   box-sizing: border-box;
-  padding: 2.5vh; }
+  padding: 0 2.5vh 0 2.5vh !important; }
   @media only screen and (max-width: 56.25em) {
     body {
       padding: 0; } }

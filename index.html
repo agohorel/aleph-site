@@ -26,7 +26,7 @@
     <body>
 		<!-- HEADER -->
 		<div id="fullpage">
-			<div class="section">
+			<div class="section fp-auto-height">
 		        <div id="header" class="section-anchor"></div>
 		        <header class="header">
 		        	<div class="header__logo-box">
@@ -46,7 +46,7 @@
 			</div>
 		
 		<!-- ABOUT -->
-		<div class="section">
+		<div class="section fp-auto-height">
         	<div id="about" class="section-anchor"></div>
         	<section class="section-about">
         		<div class="u-center-text u-margin-bottom-medium-large">
@@ -93,7 +93,7 @@
 		</div>   
 		
 		<!-- FEATURES -->
-    	<div class="section">
+    	<div class="section fp-auto-height">
 			<div id="features" class="section-anchor"></div>
 			<section class="section-features">
 				<div class="row">
@@ -134,7 +134,7 @@
 		</div>
 
 		<!-- DEMONSTRATION -->
-		<div class="section">
+		<div class="section fp-auto-height">
 			<div id="demonstration" class="section-anchor"></div>
 			<section class="section-demonstration">
 				<div class="bg-p5">
@@ -176,7 +176,7 @@
 		</div>
 
 		<!-- DOWNLOADS -->
-		<div class="section">
+		<div class="section fp-auto-height">
 			<div id="downloads" class="section-anchor"></div>
 			<section class="section-downloads">
 
@@ -246,7 +246,7 @@
 		</div>
 
 		<!-- SOCIAL -->
-		<div class="section">
+		<div class="section fp-auto-height">
 			<div id="social" class="section-anchor"></div>
 			<section class="section-social">
 				<div class="row">
@@ -265,7 +265,7 @@
 
 					<div class="col-1-of-3">
 						<div class="social">
-							<a href="#email">
+							<a href="#">
 								<svg class="social__icon social__icon--email" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><style>.a{fill:none;stroke-width:2;stroke:#FFF;}</style><rect class="a email-svg" x="1" y="13" width="62" height="37" class="a"/><polyline points="1 13 32 33 63 13 " class="a email-svg"/></svg>
 							</a>
 						</div>
@@ -284,7 +284,7 @@
 		</div>
 
 		<!-- EMAIL -->
-		<div class="section">
+		<div id="fullpage-email" class="section fp-auto-height" style="visibility: hidden">
 			<div id="email" class="section-anchor"></div>
 			<section class="section-email">
 				<div class="row">
@@ -323,7 +323,7 @@
 		</div>
 
 		<!-- FOOTER -->
-		<div class="section">
+		<div class="section fp-auto-height">
 			<footer class="footer">
 				<div class="footer__footer-box">
 					<img class="footer__logo" src="img/logo.svg" alt="aleph">
@@ -346,12 +346,11 @@
 		</div>
 		</div> <!-- END FULLPAGE.JS --> 
 		
-
-
 		<script type="text/javascript" src="./fullpage/fullpage.min.js"></script>
 		<script type="text/javascript">
 			var myFullpage = new fullpage('#fullpage', {
-				
+				paddingTop: "2.5vh"
+				// paddingBottom: "2.5vh"
 			});
 		</script>
         <script type="text/javascript" src="./js/index.js"></script>
