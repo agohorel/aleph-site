@@ -1,5 +1,4 @@
 // show contact form
-
 let emailIcon = document.querySelector(".social__icon--email");
 let emailLink = document.querySelector("#email-text-link");
 let emailFormDiv = document.querySelector(".section-email");
@@ -17,8 +16,21 @@ emailLink.addEventListener("click", () => {
 	fullpage_api.moveTo(7, 1);
 });
 
-// detect mobile
+// scroll past email section when hidden
+window.onwheel = function(event){
+	let index = fullpage_api.getActiveSection().index;
 
+	// if scrolling down, currently on section before hidden one, and hidden section is...well, hidden, do the following
+	if (event.deltaY > 0 && index === 6 && getComputedStyle(emailFormDiv).display === "none"){
+		fullpage_api.moveSectionDown();
+	}
+	// same logic as before but scrolling up instead of down
+	else if (event.deltaY < 0 && index === 6 && getComputedStyle(emailFormDiv).display === "none"){
+		fullpage_api.moveSectionUp();
+	}
+}
+
+// detect mobile
 let downloadsSection = document.querySelector(".section-downloads");
 let getStartedHref = document.querySelector(".btn-text");
 
