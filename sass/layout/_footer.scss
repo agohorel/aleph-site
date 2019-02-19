@@ -2,6 +2,7 @@
 	background-color: $aleph-grey;
 	padding: 2rem 0;
 	font-size: $font-size-h3;
+	margin-top: -5vh; // account for additional padding from fullpage.js
 
 	&__footer-box {
 		text-align: center;

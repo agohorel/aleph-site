@@ -3,17 +3,17 @@
 let emailIcon = document.querySelector(".social__icon--email");
 let emailLink = document.querySelector("#email-text-link");
 let emailFormDiv = document.querySelector(".section-email");
-let fullpageEmailContainer = document.querySelector("#fullpage-email");
+let footer = document.querySelector(".footer");
 
 emailIcon.addEventListener("click", () => {
 	emailFormDiv.style.display = "block";
-	fullpageEmailContainer.style.visibility = "visible";
+	footer.style.marginTop = "-2.5vh";
 	fullpage_api.moveTo(7, 1);
 });
 
 emailLink.addEventListener("click", () => {
 	emailFormDiv.style.display = "block";
-	fullpageEmailContainer.style.visibility = "visible";
+	footer.style.marginTop = "-2.5vh";
 	fullpage_api.moveTo(7, 1);
 });
 

@@ -26,7 +26,7 @@ body {
   padding: 0 2.5vh 0 2.5vh !important; }
   @media only screen and (max-width: 56.25em) {
     body {
-      padding: 0; } }
+      padding: 0 !important; } }
 
 @keyframes fadeInHeader {
   0% {
@@ -761,7 +761,8 @@ a svg .email-svg {
 .footer {
   background-color: #2e3233;
   padding: 2rem 0;
-  font-size: 1.5rem; }
+  font-size: 1.5rem;
+  margin-top: -5vh; }
   .footer__footer-box {
     text-align: center; }
   .footer__logo {

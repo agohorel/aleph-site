@@ -29,9 +29,9 @@ html {
 
 body {
 	box-sizing: border-box;
-	padding: 0 2.5vh 0 2.5vh !important;
+	padding: 0 2.5vh 0 2.5vh !important; // override settings from fullpage.js
 
 	@include responsive($tablet-portrait) {
-		padding: 0;
+		padding: 0 !important; // override settings from fullpage.js
 	}
 }
