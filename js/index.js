@@ -5,17 +5,22 @@ let emailFormDiv = document.querySelector(".section-email");
 let footer = document.querySelector(".footer");
 
 emailIcon.addEventListener("click", () => {
-	emailFormDiv.style.display = "block";
+	emailFormDiv.style.display = "flex";
+	emailFormDiv.style.justifyContent = "center";
+	emailFormDiv.style.alignItems = "center";
 	footer.style.marginTop = "-2.5vh";
 	fullpage_api.moveTo(7, 1);
 });
 
 emailLink.addEventListener("click", () => {
-	emailFormDiv.style.display = "block";
+	emailFormDiv.style.display = "flex";
+	emailFormDiv.style.justifyContent = "center";
+	emailFormDiv.style.alignItems = "center";
 	footer.style.marginTop = "-2.5vh";
 	fullpage_api.moveTo(7, 1);
 });
 
+// @TODO account for mobile version which has downloads section hidden additionally
 // scroll past email section when hidden
 window.onwheel = function(event){
 	let index = fullpage_api.getActiveSection().index;
