@@ -1,3 +1,9 @@
+// fullpage.js
+
+let myFullpage = new fullpage('#fullpage', {
+	paddingTop: "2.5vh"
+});
+
 // show contact form
 let emailIcon = document.querySelector(".social__icon--email");
 let emailLink = document.querySelector("#email-text-link");
