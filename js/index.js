@@ -1,8 +1,30 @@
+// detect mobile
+let downloadsSection = document.querySelector(".section-downloads");
+let getStartedHref = document.querySelector(".btn-text");
+
+let isMobile = navigator.userAgent.toLowerCase().indexOf("mobile") !== -1 || 
+  			   navigator.userAgent.toLowerCase().indexOf("iphone") !== -1 || 
+  			   navigator.userAgent.toLowerCase().indexOf("android") !== -1 || 
+			   navigator.userAgent.toLowerCase().indexOf("windows phone") !== -1;
+
+isMobile ? downloadsSection.style.display = "none" : null; 
+isMobile ? getStartedHref.href = "#demonstration" : "#downloads"; 
+
 // fullpage.js
 
-let myFullpage = new fullpage('#fullpage', {
-	paddingTop: "2.5vh"
-});
+window.onload = () => {
+	if (isMobile){
+		let myFullpage = new fullpage('#fullpage', {
+			paddingTop: "0vh"
+		});
+	} else {
+		let myFullpage = new fullpage('#fullpage', {
+			paddingTop: "2.5vh"
+		});
+	}
+}
+
+
 
 // show contact form
 let emailIcon = document.querySelector(".social__icon--email");
@@ -40,15 +62,3 @@ window.onwheel = function(event){
 		fullpage_api.moveSectionUp();
 	}
 }
-
-// detect mobile
-let downloadsSection = document.querySelector(".section-downloads");
-let getStartedHref = document.querySelector(".btn-text");
-
-let isMobile = navigator.userAgent.toLowerCase().indexOf("mobile") !== -1 || 
-  			   navigator.userAgent.toLowerCase().indexOf("iphone") !== -1 || 
-  			   navigator.userAgent.toLowerCase().indexOf("android") !== -1 || 
-			   navigator.userAgent.toLowerCase().indexOf("windows phone") !== -1;
-
-isMobile ? downloadsSection.style.display = "none" : null; 
-isMobile ? getStartedHref.href = "#demonstration" : "#downloads"; 
