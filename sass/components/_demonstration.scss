@@ -1,8 +1,8 @@
 .demonstration {
 	width: 50%;
-	height: 15rem;
+	height: auto;
 	margin: 10rem auto;
-	background-color: rgba(255, 255, 255, .6);
+	background-color: rgba(255, 255, 255, .75);
 	border-radius: $border-radius;
 	padding: 3rem 5rem;
 	transform: skewX(-12deg);
@@ -23,18 +23,20 @@
 
 	&__text--description {
 		padding-top: 1rem;
+		font-size: 1.5rem;
+		font-weight: 400;
 	}
 
 	@include responsive($tablet-portrait){
 		width: 100%;
-		padding: 2rem 3rem 0rem 3rem;
-		height: 13rem;
+		padding: 2rem 3rem;
+		height: auto;
 	}
 
 	@include responsive($phone){
 		padding: 1rem 2rem;
 		transform: skewX(0deg);
-		height: 20rem;
+		height: auto;
 
 		&__text {
 			transform: skewX(0deg);

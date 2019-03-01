@@ -6,7 +6,7 @@
 
 	&__icon {
 		font-size: 4rem;
-		margin: 0 1rem;
+		margin: 0 2rem;
 		@include text-gradient;
 	}
 
@@ -16,6 +16,7 @@
 
 	&__label {
 		color: $color-white;
+		font-size: 1.4rem;
 		padding-bottom: 1rem;
 	}
 

@@ -370,7 +370,6 @@ body {
 
 .feature-box {
   background-color: rgba(255, 255, 255, 0.8);
-  font-size: 1.5rem;
   padding: 2.5rem;
   text-align: center;
   border-radius: 2px;
@@ -393,9 +392,11 @@ body {
       padding: 1rem;
       max-width: 50vw; }
       .feature-box__icon {
-        font-size: 3.5rem; }
+        font-size: 5rem;
+        margin-bottom: 0; }
       .feature-box__text {
-        line-height: 1.25; } }
+        line-height: 1.25;
+        font-size: 1.5rem; } }
 
 .card {
   display: flex;
@@ -475,9 +476,9 @@ body {
 
 .demonstration {
   width: 50%;
-  height: 15rem;
+  height: auto;
   margin: 10rem auto;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.75);
   border-radius: 2px;
   padding: 3rem 5rem;
   transform: skewX(-12deg);
@@ -490,17 +491,19 @@ body {
   .demonstration__text {
     transform: skewX(12deg); }
   .demonstration__text--description {
-    padding-top: 1rem; }
+    padding-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: 400; }
   @media only screen and (max-width: 56.25em) {
     .demonstration {
       width: 100%;
-      padding: 2rem 3rem 0rem 3rem;
-      height: 13rem; } }
+      padding: 2rem 3rem;
+      height: auto; } }
   @media only screen and (max-width: 37.5em) {
     .demonstration {
       padding: 1rem 2rem;
       transform: skewX(0deg);
-      height: 20rem; }
+      height: auto; }
       .demonstration__text {
         transform: skewX(0deg); }
       .demonstration__text--description {
@@ -530,7 +533,7 @@ body {
   padding: .8rem 2rem 0rem 2rem; }
   .transport-controls__icon {
     font-size: 4rem;
-    margin: 0 1rem;
+    margin: 0 2rem;
     background-image: linear-gradient(to right, #12e4a6, #00b4f6);
     -webkit-background-clip: text;
     color: transparent; }
@@ -538,6 +541,7 @@ body {
     cursor: pointer; }
   .transport-controls__label {
     color: #fff;
+    font-size: 1.4rem;
     padding-bottom: 1rem; }
   @media only screen and (max-width: 56.25em) {
     .transport-controls__icon {
