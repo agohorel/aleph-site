@@ -19,27 +19,11 @@ isMobile ? getStartedHref.href = "#demonstration" : "#downloads";
 
 window.onload = () => {
 	if (isMobile){
-		let myFullpage = new fullpage('#fullpage', {
-			paddingTop: "0vh"
-		});
-
-		// @TODO make this apply to touch events instead of mousewheel
-		window.onwheel = function(event){
-			let index = fullpage_api.getActiveSection().index;
-
-			// skip hidden downloads and/or email sections on mobile when scrolling down
-			if (event.deltaY > 0 && index === 3 || event.deltaY > 0 && index === 5 && getComputedStyle(emailFormDiv).display === "none"){
-				fullpage_api.moveSectionDown();
-			}
-			// skip hidden downloads and/or email sections section on mobile when scrolling down
-			else if (event.deltaY < 0 && index === 4 || event.deltaY < 0 && index === 6 && getComputedStyle(emailFormDiv).display === "none"){
-				fullpage_api.moveSectionUp();
-			}
-		}
-
+		return; // don't load fullpage.js
 	} else {
 		let myFullpage = new fullpage('#fullpage', {
-			paddingTop: "2.5vh"
+			paddingTop: "2.5vh",
+			licensekey: "pobwH@p1"
 		});
 
 		window.onwheel = function(event){
