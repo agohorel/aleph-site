@@ -63,6 +63,9 @@
 	background-color: $aleph-light-grey;
 	margin-bottom: 2.5vh;
 	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 
 	&__title {
 		position: relative;

@@ -229,7 +229,10 @@ body {
   height: auto;
   background-color: #d4e1e6;
   margin-bottom: 2.5vh;
-  text-align: center; }
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
   .section-downloads__title {
     position: relative;
     top: 10vh; }
@@ -413,6 +416,7 @@ body {
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
+    width: 67%;
     height: 100vh; }
   .card__side {
     height: inherit;
