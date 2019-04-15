@@ -12,7 +12,7 @@
 	background-size: cover;
 	background-position: top;
 	position: relative;
-	animation: fadeInHeader 1s ease-in-out;
+	animation: fadeInHeader 1s ease-in-out both;
 
 	&__logo-box {
 		margin-top: -20vh;
