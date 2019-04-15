@@ -917,7 +917,7 @@ body {
 
 .section-demonstration {
   height: 95vh;
-  padding: 15rem 0;
+  padding: 5vh 0;
   margin-bottom: 2.5vh;
   position: relative; }
   @media only screen and (max-width: 75em) {
@@ -1181,19 +1181,19 @@ body {
   margin: 10rem auto;
   background-color: rgba(255, 255, 255, 0.75);
   border-radius: 2px;
-  padding: 3rem 5rem;
+  padding: 2rem 4rem;
   transform: skewX(-12deg);
   transition: 1s linear all;
   opacity: 1; }
   .demonstration__heading {
     transform: skewX(12deg); }
   .demonstration__subheading {
-    font-size: 2rem; }
+    font-size: 1.8rem; }
   .demonstration__text {
     transform: skewX(12deg); }
   .demonstration__text--description {
     padding-top: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 400; }
   @media only screen and (max-width: 56.25em) {
     .demonstration {
