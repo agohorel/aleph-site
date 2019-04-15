@@ -22,6 +22,7 @@ window.onload = () => {
 		return; // don't load fullpage.js
 	} else {
 		let myFullpage = new fullpage('#fullpage', {
+			anchors: ["home-page", "about-page", "features-page", "demonstration-page", "downloads-page", "contact-page", "email-page", "footer-page"],
 			paddingTop: "2.5vh",
 			licensekey: "pobwH@p1"
 		});
@@ -29,6 +30,7 @@ window.onload = () => {
 		window.onwheel = function(event){
 			let index = fullpage_api.getActiveSection().index;
 
+			// skip email form if hidden
 			if (event.deltaY > 0 && index === 6 && getComputedStyle(emailFormDiv).display === "none"){
 				fullpage_api.moveSectionDown();
 			}
@@ -42,17 +44,19 @@ window.onload = () => {
 
 // show contact form
 emailIcon.addEventListener("click", () => {
-	emailFormDiv.style.display = "flex";
-	emailFormDiv.style.justifyContent = "center";
-	emailFormDiv.style.alignItems = "center";
-	footer.style.marginTop = "-2.5vh";
-	fullpage_api.moveTo(7, 1);
+	setEmailVisibility();
 });
 
 emailLink.addEventListener("click", () => {
-	emailFormDiv.style.display = "flex";
-	emailFormDiv.style.justifyContent = "center";
-	emailFormDiv.style.alignItems = "center";
-	footer.style.marginTop = "-2.5vh";
-	fullpage_api.moveTo(7, 1);
+	setEmailVisibility();
 });
+
+function setEmailVisibility(){
+	if (getComputedStyle(emailFormDiv).display !== "flex"){
+		emailFormDiv.style.display = "flex";
+		emailFormDiv.style.justifyContent = "center";
+		emailFormDiv.style.alignItems = "center";
+		footer.style.marginTop = "-2.5vh";
+	}
+	fullpage_api.moveTo("email-page", 1);
+}
