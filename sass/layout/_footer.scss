@@ -24,12 +24,8 @@
 	&__item {
 		display: inline-block;
 
-		&:first-child {
-			margin: 0 2rem 0 2rem;
-		}
-
 		&:not(:last-child) {
-			padding-right: 2rem;
+			margin-right: 2rem;
 		}
 	}
 

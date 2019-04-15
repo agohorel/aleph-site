@@ -1484,10 +1484,8 @@ a svg .email-svg {
     list-style: none; }
   .footer__item {
     display: inline-block; }
-    .footer__item:first-child {
-      margin: 0 2rem 0 2rem; }
     .footer__item:not(:last-child) {
-      padding-right: 2rem; }
+      margin-right: 2rem; }
   .footer__link {
     transition: .1s linear color; }
     .footer__link:link, .footer__link:visited {
